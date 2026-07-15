@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://bentocss.netlify.app/</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>1.00</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/bento-grid-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/css-grid-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/tailwind-bento-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/dashboard-layout-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/hero-section-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/pricing-table-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/feature-section-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/navbar-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/footer-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/testimonial-generator.html</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/css-grid-examples.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/bento-grid-examples.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/best-bento-layouts.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/css-grid-cheatsheet.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/tailwind-grid-cheatsheet.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/responsive-dashboard-layouts.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/landing-page-layouts.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/portfolio-layouts.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/ui-layout-templates.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://bentocss.netlify.app/tools/html-css-generators.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+</urlset>

@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S1NJHJ5T30"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-S1NJHJ5T30");
+    </script>
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS vs Raw CSS Grid for Bento Layouts</title>
+    <meta
+      name="description"
+      content="Technical comparison of building Bento Grids. See the code for Tailwind CSS utility classes vs standard CSS Grid syntax."
+    />
+
+    <!-- canonical -->
+    <link
+      rel="canonical"
+      href="https://bentocss.netlify.app/tailwind-guide.html"
+    />
+
+    <!-- open graph -->
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Tailwind CSS vs Raw CSS Grid for Bento Layouts"
+    />
+    <meta
+      property="og:description"
+      content="Technical comparison of building Bento Grids. See real code examples for Tailwind CSS utilities vs standard CSS Grid syntax."
+    />
+    <meta
+      property="og:url"
+      content="https://bentocss.netlify.app/tailwind-guide.html"
+    />
+    <meta property="og:site_name" content="BentoGrid" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Tailwind CSS vs Raw CSS Grid for Bento Layouts"
+    />
+    <meta
+      name="twitter:description"
+      content="See how Bento Grid layouts translate between Tailwind utility classes and raw CSS Grid."
+    />
+
+    <meta name="twitter:site" content="@bentogrid" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Tailwind CSS vs Raw CSS Grid for Bento Layouts",
+        "description": "A technical comparison of building Bento Grid layouts using Tailwind CSS utility classes versus raw CSS Grid syntax.",
+        "url": "https://bentocss.netlify.app/tailwind-guide.html",
+        "inLanguage": "en",
+        "author": {
+          "@type": "Organization",
+          "name": "BentoGrid",
+          "url": "https://bentocss.netlify.app/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BentoGrid",
+          "url": "https://bentocss.netlify.app"
+        },
+        "about": [
+          "Tailwind CSS",
+          "CSS Grid",
+          "Bento Grid Layouts",
+          "Frontend Development"
+        ],
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://bentocss.netlify.app/tailwind-guide.html"
+        }
+      }
+    </script>
+
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #f8fafc;
+        font-family: "Inter", sans-serif;
+      }
+      pre {
+        background: #011627;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #1e293b;
+        overflow-x: auto;
+        font-size: 0.875rem;
+        color: #addb67;
+      }
+      .tag {
+        color: #82aaff;
+      }
+      .attr {
+        color: #ecc48d;
+      }
+    </style>
+
+    <meta name="robots" content="index, follow" />
+
+    <!-- favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/site.webmanifest" />
+  </head>
+  <body>
+    <nav class="border-b border-slate-800 p-4">
+      <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg grid grid-cols-2 gap-1 p-1.5"
+          >
+            <div class="bg-white rounded-sm col-span-2"></div>
+            <div class="bg-white/70 rounded-sm"></div>
+            <div class="bg-white/40 rounded-sm"></div>
+          </div>
+          <h1
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400"
+          >
+            BentoGrid
+          </h1>
+        </div>
+        <div class="space-x-6 text-sm">
+          <a href="/templates.html" class="hover:text-blue-400 transition"
+            >Templates</a
+          >
+          <a href="/design-guide.html" class="hover:text-blue-400 transition"
+            >Design Guide</a
+          >
+          <a href="/tailwind-guide.html" class="text-blue-400"
+            >Tailwind Guide</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-16">
+      <h1 class="text-4xl font-black mb-6">Tailwind CSS vs. Raw CSS Grid</h1>
+      <p class="text-xl text-slate-400 mb-12">
+        How to translate your BentoGrid.io exports into Tailwind utility
+        classes.
+      </p>
+
+      <!-- Section 1 -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold mb-4 text-blue-400">
+          1. Defining the Container
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-slate-500 uppercase mb-2">
+              Standard CSS
+            </h3>
+            <pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}</code></pre>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-slate-500 uppercase mb-2">
+              Tailwind CSS
+            </h3>
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="text-blue-300">"grid grid-cols-4 gap-4"</span><span class="tag">&gt;</span></code></pre>
+          </div>
+        </div>
+        <p class="mt-4 text-slate-400 text-sm">
+          Tailwind uses a 4-pixel scale for gaps. <code>gap-4</code> is exactly
+          <code>16px</code>.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold mb-4 text-blue-400">
+          2. Spanning Columns and Rows
+        </h2>
+        <p class="mb-6 text-slate-300">
+          The core of the "Bento" look is the asymmetric spanning. Here is how
+          the syntax differs:
+        </p>
+
+        <div class="space-y-8">
+          <div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700">
+            <h3 class="text-lg font-bold mb-3">Example: A 2x2 Feature Box</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <p class="text-xs text-slate-500 mb-1 font-mono">CSS Export</p>
+                <pre><code>.box-hero {
+  grid-column: span 2;
+  grid-row: span 2;
+}</code></pre>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 mb-1 font-mono">
+                  Tailwind Classes
+                </p>
+                <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="text-blue-300">"col-span-2 row-span-2"</span><span class="tag">&gt;</span></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold mb-4 text-blue-400">
+          3. Responsive Switching
+        </h2>
+        <p class="text-slate-300 mb-4">
+          The biggest advantage of Tailwind is the ability to change the grid
+          structure instantly at different screen sizes without writing media
+          queries.
+        </p>
+        <pre><code><span class="tag">&lt;!-- 1 column on mobile, 2 on tablet, 4 on desktop --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="text-blue-300">"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="text-blue-300">"col-span-1 lg:col-span-2"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+      </div>
+
+      <div
+        class="bg-blue-600/10 border border-blue-500/20 p-8 rounded-2xl text-center"
+      >
+        <h3 class="text-xl font-bold mb-2">Want Tailwind Output?</h3>
+        <p class="text-slate-400 mb-6">
+          Our builder allows you to toggle between "Raw CSS" and "Tailwind
+          Classes" in the export panel.
+        </p>
+        <a
+          href="/tailwind-bento-generator.html"
+          class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-bold transition"
+          >Back to Generator</a
+        >
+      </div>
+      <div
+        class="bg-blue-600/10 border border-blue-500/20 p-8 rounded-2xl text-center mt-4"
+      >
+        <h3 class="text-xl font-bold mb-2">Want Raw CSS Output?</h3>
+        <p class="text-slate-400 mb-6">
+          This builder allows you to toggle only "Raw CSS" in the export panel.
+        </p>
+        <a
+          href="/index.html"
+          class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-bold transition"
+          >Back to Generator</a
+        >
+      </div>
+    </main>
+
+    <!-- Recommended Tools Template -->
+    <section class="mt-12">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-2 text-white">
+          Deploy & Enhance Your Layout
+        </h2>
+
+        <p class="text-slate-400 mb-8">
+          After generating your grid, these tools help you launch, design, and
+          grow your website faster.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Hostinger -->
+          <a
+            href="https://www.hostinger.com/"
+            rel="noopener"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-blue-500 transition-all hover:scale-[1.02]"
+          >
+            <div class="flex justify-between mb-4">
+              <h3
+                class="font-semibold text-lg text-white group-hover:text-blue-400"
+              >
+                Hostinger Hosting
+              </h3>
+              <span
+                class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full"
+              >
+                Recommended
+              </span>
+            </div>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Deploy your layout instantly with fast hosting and free SSL.
+            </p>
+
+            <div class="text-blue-400 font-medium text-sm">
+              Deploy your site →
+            </div>
+          </a>
+
+          <!-- Webflow -->
+          <a
+            href="https://webflow.com/"
+            rel="noopener"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-purple-500 transition-all hover:scale-[1.02]"
+          >
+            <h3
+              class="font-semibold text-lg text-white group-hover:text-purple-400 mb-4"
+            >
+              Webflow Builder
+            </h3>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Build Bento layouts visually without coding.
+            </p>
+
+            <div class="text-purple-400 font-medium text-sm">
+              Design visually →
+            </div>
+          </a>
+
+          <!-- Namecheap -->
+          <a
+            href="https://www.namecheap.com/"
+            rel="noopener"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-green-500 transition-all hover:scale-[1.02]"
+          >
+            <h3
+              class="font-semibold text-lg text-white group-hover:text-green-400 mb-4"
+            >
+              Namecheap Domains
+            </h3>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Secure a domain for your new project instantly.
+            </p>
+
+            <div class="text-green-400 font-medium text-sm">
+              Get your domain →
+            </div>
+          </a>
+
+          <!-- Envato -->
+          <a
+            href="https://www.envato.com/"
+            rel="noopener"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-orange-500 transition-all hover:scale-[1.02]"
+          >
+            <h3
+              class="font-semibold text-lg text-white group-hover:text-orange-400 mb-4"
+            >
+              Envato Elements
+            </h3>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Icons, UI kits, fonts and assets for production-ready layouts.
+            </p>
+
+            <div class="text-orange-400 font-medium text-sm">
+              Explore assets →
+            </div>
+          </a>
+
+          <!-- Creative Market -->
+          <a
+            href="https://creativemarket.com/"
+            rel="nofollow sponsored"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-pink-500 transition-all hover:scale-[1.02] md:col-span-2"
+          >
+            <h3
+              class="font-semibold text-lg text-white group-hover:text-pink-400 mb-4"
+            >
+              Creative Market UI Kits
+            </h3>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Premium templates, icons and interface kits.
+            </p>
+
+            <div class="text-pink-400 font-medium text-sm">
+              Browse resources →
+            </div>
+          </a>
+        </div>
+
+        <p class="text-xs text-slate-500 mt-6">
+          Some links may be affiliate links. We may earn a commission at no
+          extra cost to you.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/80 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+        >
+          <!-- Brand -->
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg grid grid-cols-2 gap-1 p-1.5"
+            >
+              <div class="bg-white rounded-sm col-span-2"></div>
+              <div class="bg-white/70 rounded-sm"></div>
+              <div class="bg-white/40 rounded-sm"></div>
+            </div>
+            <div>
+              <p class="font-semibold text-white">BentoGrid Generator</p>
+              <p class="text-xs text-slate-400">
+                Visual CSS Grid & Bento Layout Builder
+              </p>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
+            <a href="/" class="hover:text-white transition">Home</a>
+            <a
+              href="/tailwind-bento-generator.html"
+              class="hover:text-white transition"
+              >Tailwind Bento Grid Generator</a
+            >
+            <a href="/design-guide.html" class="hover:text-white transition"
+              >CSS Grid Guide</a
+            >
+            <a href="/templates.html" class="hover:text-white transition"
+              >Templates</a
+            >
+            <a href="/tailwind-guide.html" class="hover:text-white transition"
+              >Tailwind Guide</a
+            >
+            <a href="/privacy-policy.html" class="hover:text-white transition"
+              >Privacy Poilicy</a
+            >
+            <a href="/about.html" class="hover:text-white transition"
+              >About Bentogrid</a
+            >
+            <a href="/contact.html" class="hover:text-white transition"
+              >Contact Us</a
+            >
+          </nav>
+        </div>
+
+        <!-- Bottom bar -->
+        <div
+          class="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500"
+        >
+          <p>
+            © <span id="year"></span> BentoGrid Generator. All rights reserved.
+          </p>
+
+          <p>Built for developers. No sign-up. No tracking.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

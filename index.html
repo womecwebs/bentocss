@@ -1,0 +1,1725 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S1NJHJ5T30"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-S1NJHJ5T30");
+    </script>
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bento Grid CSS Generator | Free Layout Builder</title>
+    <meta
+      name="description"
+      content="Visually build trendy Bento Box UI layouts and instantly generate the HTML and CSS Grid code. Free developer tool."
+    />
+
+    <!-- open graph -->
+    <meta property="og:title" content="Bento Grid CSS Generator" />
+    <meta
+      property="og:description"
+      content="Build modern Bento layouts visually and export clean CSS Grid code instantly."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bentocss.netlify.app/" />
+
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- canonical -->
+    <link rel="canonical" href="https://bentocss.netlify.app/" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0f172a;
+        color: #f8fafc;
+      }
+
+      /* Custom scrollbar for the builder area */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e293b;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+
+      .bento-preview-container {
+        display: grid;
+        transition: all 0.3s ease;
+      }
+
+      .bento-cell {
+        position: relative;
+        border-radius: 1rem;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+        border: 2px solid transparent;
+      }
+
+      .bento-cell:hover {
+        border-color: #3b82f6;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      }
+
+      .cell-controls {
+        opacity: 0;
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.8);
+        border-radius: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: opacity 0.2s ease;
+        backdrop-filter: blur(2px);
+      }
+
+      .bento-cell:hover .cell-controls {
+        opacity: 1;
+      }
+
+      .control-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .btn-mini {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.2s;
+      }
+      .btn-mini:hover {
+        background: #2563eb;
+      }
+      .btn-mini.danger {
+        background: #ef4444;
+      }
+      .btn-mini.danger:hover {
+        background: #dc2626;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #10b981;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .toast.show {
+        bottom: 24px;
+      }
+
+      @keyframes popup {
+        from {
+          opacity: 0;
+
+          transform: translateY(40px) scale(0.92);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      #aiBar {
+        position: fixed;
+
+        bottom: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        padding: 5px 24px;
+
+        background: rgba(15, 23, 42, 0.96);
+
+        backdrop-filter: blur(15px);
+
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+        z-index: 9000;
+
+        border-radius: 0;
+      }
+
+      #aiBarText {
+        font-size: 16px;
+
+        font-weight: 600;
+
+        color: white;
+      }
+
+      #aiBarButton {
+        background: linear-gradient(90deg, #2563eb, #9333ea);
+
+        padding: 12px 22px;
+
+        border-radius: 12px;
+
+        color: white;
+
+        font-weight: 700;
+
+        text-decoration: none;
+
+        transition: 0.3s;
+      }
+
+      #aiBarButton:hover {
+        transform: translateY(-2px);
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+
+          transform: translate(-50%, 80px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translate(-50%, 0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        #aiBar {
+          flex-direction: column;
+
+          gap: 15px;
+
+          padding: 20px;
+        }
+      }
+
+      .animate-popup {
+        animation: popup 0.45s ease;
+      }
+
+      /* Logic to show the right adsterra ad at the right time */
+      @media (max-width: 467px) {
+        .ad-mobile {
+          display: block !important;
+        }
+      }
+      @media (min-width: 468px) and (max-width: 767px) {
+        .ad-tablet {
+          display: block !important;
+        }
+      }
+      @media (min-width: 768px) {
+        .ad-desktop {
+          display: block !important;
+        }
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Bento Grid CSS Generator",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "description": "Free visual CSS Grid generator for creating modern Bento Box layouts and exporting HTML and CSS code instantly.",
+        "url": "https://bentocss.netlify.app",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "Bento Grid CSS generator"
+        }
+      }
+    </script>
+
+    <!-- favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/site.webmanifest" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header
+      class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <div
+            class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg grid grid-cols-2 gap-1 p-1.5"
+          >
+            <div class="bg-white rounded-sm col-span-2"></div>
+            <div class="bg-white/70 rounded-sm"></div>
+            <div class="bg-white/40 rounded-sm"></div>
+          </div>
+          <h1
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400"
+          >
+            BentoGrid Generator
+          </h1>
+        </div>
+        <div class="hidden sm:flex items-center gap-4">
+          <p class="text-sm text-slate-400">Build CSS Grid layouts visually</p>
+
+          <a
+            href="https://readdy.ai/?via=joshua-eddy"
+            target="_blank"
+            class="relative overflow-hidden px-5 py-2 rounded-full font-semibold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-pulse hover:scale-105 transition"
+          >
+            ✨ Build with AI
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main
+      class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col lg:flex-row gap-8"
+    >
+      <!-- Left: Builder Canvas -->
+      <div class="flex-1 flex flex-col gap-4">
+        <h1 class="text-3xl font-bold mb-4 hidden">
+          Free Bento Grid CSS Generator (Visual Layout Builder)
+        </h1>
+        <div class="flex justify-between items-center">
+          <h2 class="text-lg font-semibold flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM14 13a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"
+              ></path>
+            </svg>
+            Interactive Canvas
+          </h2>
+          <button
+            onclick="addBox()"
+            class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg transition-colors border border-slate-700 flex items-center gap-2"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4v16m8-8H4"
+              ></path>
+            </svg>
+            Add Box
+          </button>
+        </div>
+
+        <!-- Canvas Container -->
+        <div
+          class="bg-slate-900 border border-slate-800 rounded-2xl p-8 min-h-[500px] flex items-center justify-center overflow-x-auto shadow-inner relative"
+        >
+          <div
+            id="grid-preview"
+            class="bento-preview-container w-full max-w-3xl aspect-video mx-auto"
+          >
+            <!-- Grid items injected by JS -->
+          </div>
+        </div>
+
+        <!-- affiliate platforms -->
+        <div
+          class="mt-4 p-4 rounded-xl border border-blue-900/50 text-blue-200 text-sm flex gap-3 items-start"
+        >
+          <svg
+            class="w-5 h-5 flex-shrink-0 mt-0.5 text-blue-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <!-- <div>
+            <strong class="block text-blue-300 mb-1">💡 SEO & UX Tip:</strong>
+            Users will spend 2-3 minutes interacting with this canvas. This high
+            "Time on Page" signals to Google that your tool is valuable, pushing
+            it higher in search rankings over time.
+          </div> -->
+          <!-- Desktop Recommended Tools Placement -->
+          <div class="hidden lg:block basis-full w-full">
+            <div id="recommended-tools-desktop"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Settings, Code & Monetization -->
+      <div class="w-full lg:w-[400px] flex flex-col gap-6">
+        <!-- Global Grid Settings -->
+        <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6">
+          <h3
+            class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4"
+          >
+            Grid Settings
+          </h3>
+
+          <div class="space-y-5">
+            <!-- Columns -->
+            <div>
+              <div class="flex justify-between mb-1">
+                <label class="text-sm font-medium">Desktop Columns</label>
+                <span id="col-val" class="text-sm text-blue-400 font-mono"
+                  >4</span
+                >
+              </div>
+              <input
+                type="range"
+                id="col-slider"
+                min="2"
+                max="6"
+                value="4"
+                class="w-full accent-blue-500"
+              />
+            </div>
+
+            <!-- Gap -->
+            <div>
+              <div class="flex justify-between mb-1">
+                <label class="text-sm font-medium">Grid Gap</label>
+                <span id="gap-val" class="text-sm text-blue-400 font-mono"
+                  >16px</span
+                >
+              </div>
+              <input
+                type="range"
+                id="gap-slider"
+                min="0"
+                max="48"
+                step="4"
+                value="16"
+                class="w-full accent-blue-500"
+              />
+            </div>
+
+            <!-- Border Radius -->
+            <div>
+              <div class="flex justify-between mb-1">
+                <label class="text-sm font-medium">Border Radius</label>
+                <span id="radius-val" class="text-sm text-blue-400 font-mono"
+                  >24px</span
+                >
+              </div>
+              <input
+                type="range"
+                id="radius-slider"
+                min="0"
+                max="48"
+                step="4"
+                value="24"
+                class="w-full accent-blue-500"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Output -->
+        <div
+          class="bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden flex flex-col"
+        >
+          <div class="flex border-b border-slate-700 bg-slate-800">
+            <button
+              onclick="switchTab('html')"
+              id="tab-html"
+              class="flex-1 py-3 text-sm font-medium text-white border-b-2 border-blue-500 bg-slate-800/50"
+            >
+              HTML
+            </button>
+            <button
+              onclick="switchTab('css')"
+              id="tab-css"
+              class="flex-1 py-3 text-sm font-medium text-slate-400 border-b-2 border-transparent hover:text-white"
+            >
+              CSS
+            </button>
+          </div>
+          <div class="p-4 relative group overflow-hidden">
+            <pre
+              class="text-xs font-mono text-slate-300 overflow-y-auto max-h-[250px]"
+            ><code id="code-output"></code></pre>
+            <button
+              onclick="copyCode()"
+              class="absolute top-4 right-4 p-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-white opacity-0 group-hover:opacity-100 transition-opacity border border-slate-600 shadow-lg"
+              title="Copy to clipboard"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- affiliate links -->
+        <section class="mt-8">
+          <h2 class="text-xl font-bold mb-6">
+            🚀 Continue Building Your Project
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <a
+              href="https://readdy.ai/?via=joshua-eddy"
+              target="_blank"
+              class="group rounded-2xl bg-gradient-to-br from-blue-900/40 to-slate-900 border border-blue-900 p-6 hover:scale-[1.02] transition"
+            >
+              <div class="text-5xl mb-4">🎨</div>
+
+              <h3 class="text-2xl font-bold mb-3">
+                Generate Your Entire Website
+              </h3>
+
+              <p class="text-slate-400 mb-6">
+                Transform this layout into a complete landing page, SaaS
+                website, dashboard, portfolio or mobile interface.
+              </p>
+
+              <div class="font-semibold text-blue-400">Open Readdy AI →</div>
+            </a>
+
+            <a
+              href="https://bolt.cello.so/3ME6XnH5nD4"
+              target="_blank"
+              class="group rounded-2xl bg-gradient-to-br from-purple-900/40 to-slate-900 border border-purple-900 p-6 hover:scale-[1.02] transition"
+            >
+              <div class="text-5xl mb-4">⚡</div>
+
+              <h3 class="text-2xl font-bold mb-3">
+                Turn It Into a Working App
+              </h3>
+
+              <p class="text-slate-400 mb-6">
+                Generate React, Next.js and full-stack applications with
+                authentication, APIs and databases.
+              </p>
+
+              <div class="font-semibold text-purple-400">
+                Launch with Bolt →
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- MONETIZATION ZONE: Affiliate Integration   -->
+        <!-- ========================================== -->
+        <div class="space-y-4">
+          <h3
+            class="text-xs font-semibold text-slate-500 uppercase tracking-wider"
+          >
+            Sponsored Tools
+          </h3>
+
+          <!-- Webflow Affiliate Banner (50% Commission) -->
+          <a
+            href="#"
+            class="block group relative overflow-hidden rounded-xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-4 hover:border-blue-500 transition-colors"
+          >
+            <div
+              class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"
+            ></div>
+            <div class="flex items-start gap-4 relative z-10">
+              <div
+                class="w-10 h-10 rounded bg-blue-600 text-white flex items-center justify-center font-bold text-xl flex-shrink-0"
+              >
+                W
+              </div>
+              <div>
+                <h4
+                  class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors mb-1"
+                >
+                  Don't want to code this?
+                </h4>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Build stunning Bento grids visually without writing CSS. Try
+                  Webflow for free.
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Hostinger Affiliate Banner (Up to 60% Commission) -->
+          <a
+            href="#"
+            class="block group relative overflow-hidden rounded-xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-4 hover:border-purple-500 transition-colors"
+          >
+            <div
+              class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"
+            ></div>
+            <div class="flex items-start gap-4 relative z-10">
+              <div
+                class="w-10 h-10 rounded bg-purple-600 text-white flex items-center justify-center font-bold text-xl flex-shrink-0"
+              >
+                H
+              </div>
+              <div>
+                <h4
+                  class="text-sm font-bold text-white group-hover:text-purple-400 transition-colors mb-1"
+                >
+                  Host your Portfolio
+                </h4>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Get premium web hosting + free domain starting at just
+                  $2.99/mo. Perfect for devs.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Mobile Recommended Tools Placement -->
+        <div class="block lg:hidden">
+          <div id="recommended-tools-mobile"></div>
+        </div>
+        <!-- ============================= -->
+        <!-- SEO Content Section -->
+        <!-- ============================= -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-24">
+          <details
+            class="group bg-slate-900 border border-slate-800 rounded-2xl p-6 transition-all"
+          >
+            <summary
+              class="cursor-pointer text-xl font-semibold text-white flex items-center justify-between"
+            >
+              Learn More About CSS Grid & Bento Layouts
+              <span
+                class="text-slate-400 group-open:rotate-180 transition-transform"
+                >⌄</span
+              >
+            </summary>
+
+            <div class="mt-6 space-y-6 text-slate-300 leading-relaxed text-sm">
+              <h2 class="text-2xl font-bold text-white">What is CSS Grid?</h2>
+              <p>
+                CSS Grid is a two-dimensional layout system built directly into
+                modern browsers. Unlike Flexbox, which works best for
+                one-directional layouts, CSS Grid allows developers to control
+                rows and columns simultaneously. This makes it ideal for
+                dashboards, landing pages, portfolios, and complex UI systems.
+              </p>
+
+              <p>
+                With CSS Grid, you can define column structures, row heights,
+                spacing gaps, and element spans without relying on floats,
+                hacks, or external frameworks. It is responsive by design and
+                works across all modern browsers.
+              </p>
+
+              <h2 class="text-2xl font-bold text-white">
+                Why Visual Grid Generators Save Time
+              </h2>
+              <p>
+                Writing grid-template-columns and manually calculating span
+                values can slow down development. A visual builder eliminates
+                guesswork. Instead of editing CSS repeatedly, you adjust layout
+                blocks visually and export production-ready HTML and CSS
+                instantly.
+              </p>
+
+              <p>
+                This reduces debugging time, speeds up prototyping, and helps
+                designers and developers collaborate more efficiently.
+              </p>
+
+              <h2 class="text-2xl font-bold text-white">
+                The Rise of Bento Grid Layouts
+              </h2>
+              <p>
+                Bento layouts became popular in modern SaaS interfaces and
+                product landing pages. Inspired by modular design systems, they
+                use mixed-size content blocks arranged inside structured grids.
+                This style creates hierarchy, visual rhythm, and balance while
+                keeping the layout structured.
+              </p>
+
+              <p>
+                Companies building dashboards, portfolio sites, and startup
+                pages use Bento patterns to highlight features, testimonials,
+                analytics, and calls to action in a visually engaging way.
+              </p>
+
+              <h2 class="text-2xl font-bold text-white">
+                How This Generator Works
+              </h2>
+              <p>
+                This tool dynamically creates a CSS Grid container based on your
+                selected column count, gap size, and border radius. Each box
+                uses grid-column and grid-row span values to define width and
+                height.
+              </p>
+
+              <p>
+                As you modify layout blocks, the code updates automatically. You
+                can switch between HTML and CSS tabs and copy the clean output
+                for production use.
+              </p>
+
+              <h2 class="text-2xl font-bold text-white">
+                Responsive Layout Behavior
+              </h2>
+              <p>
+                The generated CSS includes a mobile breakpoint to ensure layouts
+                collapse into a single-column structure under 768px width. This
+                ensures readability and prevents overflow issues on smaller
+                devices.
+              </p>
+
+              <p>
+                Developers can extend this by adding tablet breakpoints or
+                custom grid-area definitions depending on project requirements.
+              </p>
+
+              <!-- FAQ SECTION -->
+              <h2 class="text-2xl font-bold text-white mt-10">
+                Frequently Asked Questions
+              </h2>
+
+              <div class="space-y-4">
+                <div>
+                  <h3 class="font-semibold text-white">
+                    Is this CSS Grid generator free?
+                  </h3>
+                  <p>
+                    Yes. The tool generates clean HTML and CSS without requiring
+                    signup or payment.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="font-semibold text-white">
+                    Does it support responsive layouts?
+                  </h3>
+                  <p>
+                    Yes. The generated CSS includes a mobile breakpoint that
+                    stacks items vertically for smaller screens.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="font-semibold text-white">
+                    Can I use this for production projects?
+                  </h3>
+                  <p>
+                    Absolutely. The exported code follows modern CSS Grid
+                    standards and works in all major browsers.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="font-semibold text-white">
+                    Is this better than using Tailwind Grid?
+                  </h3>
+                  <p>
+                    It depends on workflow. This tool is ideal for visual
+                    prototyping, while Tailwind is useful for utility-based
+                    development systems.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="font-semibold text-white">
+                    Do I need JavaScript to use the exported layout?
+                  </h3>
+                  <p>No. The exported layout is pure HTML and CSS.</p>
+                </div>
+              </div>
+
+              <div class="pt-6 border-t border-slate-700">
+                <a
+                  href="#"
+                  class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-medium transition"
+                >
+                  Try the Generator Above →
+                </a>
+              </div>
+            </div>
+          </details>
+        </section>
+      </div>
+    </main>
+
+    <!-- Recommended Tools Template -->
+    <template id="recommended-tools-template">
+      <!-- AI affiliate links(bolt and readdy ai) -->
+      <section class="mt-12">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-2xl font-bold mb-2 text-white">
+            Deploy & Enhance Your Layout
+          </h2>
+
+          <p class="text-slate-400 mb-8">
+            After generating your grid, these tools help you launch, design, and
+            grow your website faster.
+          </p>
+
+          <section class="my-20">
+            <h2 class="text-3xl font-bold mb-3">Developer Resources</h2>
+
+            <p class="text-slate-400 mb-10">
+              Recommended AI tools used by developers to design and build
+              complete products.
+            </p>
+
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <a
+                href="https://readdy.ai/?via=joshua-eddy"
+                target="_blank"
+                class="rounded-2xl border border-slate-700 p-6 hover:border-blue-500 transition"
+              >
+                <div class="text-4xl mb-4">🎨</div>
+
+                <h3 class="font-bold text-xl mb-3">
+                  Generate Complete Websites
+                </h3>
+
+                <p class="text-slate-400">
+                  Create landing pages, SaaS websites, portfolios and Bento
+                  layouts in minutes.
+                </p>
+              </a>
+              <a
+                href="https://bolt.cello.so/3ME6XnH5nD4"
+                target="_blank"
+                class="rounded-2xl border border-slate-700 p-6 hover:border-purple-500 transition"
+              >
+                <div class="text-4xl mb-4">⚡</div>
+
+                <h3 class="font-bold text-xl mb-3">Build Production Apps</h3>
+
+                <p class="text-slate-400">
+                  Generate React, Next.js and AI applications instantly.
+                </p>
+              </a>
+              <a
+                href="https://readdy.ai/?via=joshua-eddy"
+                target="_blank"
+                class="rounded-2xl border border-slate-700 p-6 hover:border-green-500 transition"
+              >
+                <div class="text-4xl mb-4">📱</div>
+
+                <h3 class="font-bold text-xl mb-3">Design Mobile Apps</h3>
+
+                <p class="text-slate-400">
+                  Create beautiful iOS and Android interfaces using AI.
+                </p>
+              </a>
+              <a
+                href="https://bolt.cello.so/3ME6XnH5nD4"
+                target="_blank"
+                class="rounded-2xl border border-slate-700 p-6 hover:border-orange-500 transition"
+              >
+                <div class="text-4xl mb-4">🚀</div>
+
+                <h3 class="font-bold text-xl mb-3">Launch Faster</h3>
+
+                <p class="text-slate-400">
+                  Go from idea to deployed application much faster with
+                  AI-assisted development.
+                </p>
+              </a>
+              <a
+                href="https://readdy.ai/?via=joshua-eddy"
+                target="_blank"
+                class="rounded-2xl border border-slate-700 p-6 hover:border-pink-500 transition"
+              >
+                <div class="text-4xl mb-4">💡</div>
+
+                <h3 class="font-bold text-xl mb-3">Generate Modern UI</h3>
+
+                <p class="text-slate-400">
+                  Create polished dashboards, startup websites, admin panels and
+                  marketing pages.
+                </p>
+              </a>
+            </div>
+
+            <div class="mt-8 text-sm text-slate-500">
+              Some links in this section are affiliate links. If you choose to
+              use these tools, we may earn a commission at no extra cost to you.
+            </div>
+          </section>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Hostinger -->
+            <a
+              href="https://www.hostinger.com/"
+              rel="noopener"
+              target="_blank"
+              class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-blue-500 transition-all hover:scale-[1.02]"
+            >
+              <div class="flex justify-between mb-4">
+                <h3
+                  class="font-semibold text-lg text-white group-hover:text-blue-400"
+                >
+                  Hostinger Hosting
+                </h3>
+                <span
+                  class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full"
+                >
+                  Recommended
+                </span>
+              </div>
+
+              <p class="text-sm text-slate-400 mb-4">
+                Deploy your layout instantly with fast hosting and free SSL.
+              </p>
+
+              <div class="text-blue-400 font-medium text-sm">
+                Deploy your site →
+              </div>
+            </a>
+
+            <!-- Webflow -->
+            <a
+              href="https://bentoflow.netlify.app/editor"
+              rel="noopener"
+              target="_blank"
+              class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-purple-500 transition-all hover:scale-[1.02]"
+            >
+              <h3
+                class="font-semibold text-lg text-white group-hover:text-purple-400 mb-4"
+              >
+                Bentoflow
+              </h3>
+
+              <p class="text-sm text-slate-400 mb-4">
+                Build Bento layouts visually without coding.
+              </p>
+
+              <div class="text-purple-400 font-medium text-sm">
+                Design visually →
+              </div>
+            </a>
+
+            <!-- Namecheap -->
+            <a
+              href="https://www.namecheap.com/"
+              rel="noopener"
+              target="_blank"
+              class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-green-500 transition-all hover:scale-[1.02]"
+            >
+              <h3
+                class="font-semibold text-lg text-white group-hover:text-green-400 mb-4"
+              >
+                Namecheap Domains
+              </h3>
+
+              <p class="text-sm text-slate-400 mb-4">
+                Secure a domain for your new project instantly.
+              </p>
+
+              <div class="text-green-400 font-medium text-sm">
+                Get your domain →
+              </div>
+            </a>
+
+            <!-- Envato -->
+            <a
+              href="https://www.envato.com/"
+              rel="noopener"
+              target="_blank"
+              class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-orange-500 transition-all hover:scale-[1.02]"
+            >
+              <h3
+                class="font-semibold text-lg text-white group-hover:text-orange-400 mb-4"
+              >
+                Envato Elements
+              </h3>
+
+              <p class="text-sm text-slate-400 mb-4">
+                Icons, UI kits, fonts and assets for production-ready layouts.
+              </p>
+
+              <div class="text-orange-400 font-medium text-sm">
+                Explore assets →
+              </div>
+            </a>
+
+            <!-- Creative Market -->
+            <a
+              href="https://creativemarket.com/"
+              rel="noopener"
+              target="_blank"
+              class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-pink-500 transition-all hover:scale-[1.02] md:col-span-2"
+            >
+              <h3
+                class="font-semibold text-lg text-white group-hover:text-pink-400 mb-4"
+              >
+                Creative Market UI Kits
+              </h3>
+
+              <p class="text-sm text-slate-400 mb-4">
+                Premium templates, icons and interface kits.
+              </p>
+
+              <div class="text-pink-400 font-medium text-sm">
+                Browse resources →
+              </div>
+            </a>
+          </div>
+
+          <p class="text-xs text-slate-500 mt-6">
+            Some links may be affiliate links. We may earn a commission at no
+            extra cost to you.
+          </p>
+        </div>
+      </section>
+    </template>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Code copied to clipboard!</div>
+
+    <div id="container-6226b5db5dc8f1b9806da772427f6b07"></div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/80 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+        >
+          <!-- Brand -->
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg grid grid-cols-2 gap-1 p-1.5"
+            >
+              <div class="bg-white rounded-sm col-span-2"></div>
+              <div class="bg-white/70 rounded-sm"></div>
+              <div class="bg-white/40 rounded-sm"></div>
+            </div>
+            <div>
+              <p class="font-semibold text-white">BentoGrid Generator</p>
+              <p class="text-xs text-slate-400">
+                Visual CSS Grid & Bento Layout Builder
+              </p>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
+            <a href="/" class="hover:text-white transition">Home</a>
+            <a
+              href="/tailwind-bento-generator.html"
+              class="hover:text-white transition"
+              >Tailwind Bento Grid Generator</a
+            >
+            <a href="/design-guide.html" class="hover:text-white transition"
+              >CSS Grid Guide</a
+            >
+            <a href="/templates.html" class="hover:text-white transition"
+              >Templates</a
+            >
+            <a href="/tailwind-guide.html" class="hover:text-white transition"
+              >Tailwind Guide</a
+            >
+            <a href="/privacy-policy.html" class="hover:text-white transition"
+              >Privacy Poilicy</a
+            >
+            <a href="/about.html" class="hover:text-white transition"
+              >About Bentogrid</a
+            >
+            <a href="/contact.html" class="hover:text-white transition"
+              >Contact Us</a
+            >
+          </nav>
+        </div>
+
+        <!-- Bottom bar -->
+        <div
+          class="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500"
+        >
+          <p>
+            © <span id="year"></span> BentoGrid Generator. All rights reserved.
+          </p>
+
+          <p>Built for developers. No sign-up. No tracking.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- AI Builder Popup -->
+    <!-- ========================================= -->
+    <div
+      id="aiPopup"
+      class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-[100000] p-5"
+    >
+      <div
+        class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-slate-900 border border-slate-700 rounded-3xl shadow-2xl animate-popup"
+      >
+        <div class="p-6 md:p-8">
+          <button
+            id="closePopup"
+            class="absolute right-6 top-6 text-slate-400 hover:text-white text-2xl"
+          >
+            ×
+          </button>
+
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm mb-5"
+          >
+            ✨ Continue Your Project
+          </div>
+
+          <h2 class="text-3xl font-bold text-white mb-4">
+            Design & Build Your Entire Project with AI. Create full websites,
+            SaaS dashboards, portfolios and web apps with AI
+          </h2>
+
+          <!-- <p class="text-slate-300 leading-7 mb-8">
+            create complete bento websites with just prompt. Now generate the
+            complete website, SaaS dashboard, portfolio, landing page, mobile
+            UI, web app or full-stack application using AI.
+          </p> -->
+
+          <div class="grid md:grid-cols-2 gap-5">
+            <a
+              href="https://readdy.ai/?via=joshua-eddy"
+              target="_blank"
+              class="group rounded-2xl border border-slate-700 p-6 hover:border-blue-500 transition hover:-translate-y-1"
+            >
+              <div class="text-4xl mb-4">🎨</div>
+
+              <h3 class="text-xl font-bold mb-3">Generate Complete UI</h3>
+
+              <p class="text-slate-400 mb-5">
+                Landing Pages
+
+                <br />
+
+                Dashboards
+
+                <br />
+
+                Bento Websites
+
+                <br />
+
+                Portfolios
+
+                <br />
+
+                Mobile Apps
+              </p>
+
+              <div
+                class="inline-flex px-5 py-3 bg-blue-600 rounded-xl group-hover:bg-blue-500 transition"
+              >
+                Design with Readdy →
+              </div>
+            </a>
+
+            <a
+              href="https://bolt.cello.so/3ME6XnH5nD4"
+              target="_blank"
+              class="group rounded-2xl border border-slate-700 p-6 hover:border-purple-500 transition hover:-translate-y-1"
+            >
+              <div class="text-4xl mb-4">⚡</div>
+
+              <h3 class="text-xl font-bold mb-3">Build Full Apps</h3>
+
+              <p class="text-slate-400 mb-5">
+                React Apps
+
+                <br />
+
+                Next.js
+
+                <br />
+
+                AI Apps
+
+                <br />
+
+                Full Stack
+
+                <br />
+
+                Web Apps
+              </p>
+
+              <div
+                class="inline-flex px-5 py-3 bg-purple-600 rounded-xl group-hover:bg-purple-500 transition"
+              >
+                Build with Bolt →
+              </div>
+            </a>
+          </div>
+
+          <div class="mt-8 text-center text-sm text-slate-500">
+            Recommended tools for developers building modern websites.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- AI Affiliate-ads js -->
+    <!-- ========================================= -->
+    <div id="aiBar">
+      <div id="aiBarText">🚀 Generate complete websites with AI</div>
+
+      <a
+        id="aiBarButton"
+        href="https://readdy.ai/?via=joshua-eddy"
+        target="_blank"
+      >
+        Try Free →
+      </a>
+    </div>
+
+    <!-- ads -->
+    <!-- 
+    <div
+      id="sticky-ad-wrapper"
+      style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: rgba(5, 5, 5, 0.9);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60px;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          top: -24px;
+          right: 12px;
+          background: #1a1a1a;
+          color: #666;
+          font-size: 10px;
+          padding: 4px 10px;
+          border-radius: 8px 8px 0 0;
+          cursor: pointer;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-bottom: none;
+        "
+        onclick="document.getElementById('sticky-ad-wrapper').remove()"
+      >
+        Close Ad ×
+      </div>
+
+      <div class="ad-mobile" style="display: none">
+        <script type="text/javascript">
+          atOptions = {
+            key: "f46dce1cc42fa419dffa2c38f58d47dc",
+            format: "iframe",
+            height: 50,
+            width: 320,
+            params: {},
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="https://www.highperformanceformat.com/f46dce1cc42fa419dffa2c38f58d47dc/invoke.js"
+        ></script>
+      </div>
+
+      <div class="ad-tablet" style="display: none">
+        <script type="text/javascript">
+          atOptions = {
+            key: "65b03866b9ccdc2363ab1624b0c2a23e",
+            format: "iframe",
+            height: 60,
+            width: 468,
+            params: {},
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="https://www.highperformanceformat.com/65b03866b9ccdc2363ab1624b0c2a23e/invoke.js"
+        ></script>
+      </div>
+
+      <div class="ad-desktop" style="display: none">
+        <script type="text/javascript">
+          atOptions = {
+            key: "7f5fd808d864a4866c5a95caf5749ffa",
+            format: "iframe",
+            height: 90,
+            width: 728,
+            params: {},
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="https://www.highperformanceformat.com/7f5fd808d864a4866c5a95caf5749ffa/invoke.js"
+        ></script>
+      </div>
+    </div> -->
+
+    <!-- native banner ads -->
+    <!-- <script
+      async="async"
+      data-cfasync="false"
+      src="https://pl28813684.profitablecpmratenetwork.com/6226b5db5dc8f1b9806da772427f6b07/invoke.js"
+    ></script> -->
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script>
+      // --- State Management ---
+      let state = {
+        columns: 4,
+        gap: 16,
+        radius: 24,
+        activeTab: "html",
+        // Default visually pleasing bento layout
+        items: [
+          {
+            id: 1,
+            colSpan: 2,
+            rowSpan: 2,
+            bg: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
+          },
+          { id: 2, colSpan: 1, rowSpan: 1, bg: "#1e293b" },
+          { id: 3, colSpan: 1, rowSpan: 2, bg: "#1e293b" },
+          { id: 4, colSpan: 1, rowSpan: 1, bg: "#1e293b" },
+          { id: 5, colSpan: 2, rowSpan: 1, bg: "#1e293b" },
+          { id: 6, colSpan: 1, rowSpan: 1, bg: "#1e293b" },
+          { id: 7, colSpan: 1, rowSpan: 1, bg: "#1e293b" },
+        ],
+      };
+
+      const colors = [
+        "#1e293b",
+        "#334155",
+        "linear-gradient(135deg, #10b981, #059669)",
+        "linear-gradient(135deg, #f59e0b, #d97706)",
+        "linear-gradient(135deg, #ec4899, #be185d)",
+      ];
+
+      // --- DOM Elements ---
+      const preview = document.getElementById("grid-preview");
+      const codeOutput = document.getElementById("code-output");
+
+      // --- Core Functions ---
+      function renderGrid() {
+        // Update container styles
+        preview.style.gridTemplateColumns = `repeat(${state.columns}, 1fr)`;
+        preview.style.gap = `${state.gap}px`;
+
+        // Render items
+        preview.innerHTML = "";
+        state.items.forEach((item, index) => {
+          const div = document.createElement("div");
+          div.className = "bento-cell shadow-sm";
+          div.style.gridColumn = `span ${item.colSpan}`;
+          div.style.gridRow = `span ${item.rowSpan}`;
+          div.style.background = item.bg;
+          div.style.borderRadius = `${state.radius}px`;
+
+          // Content
+          div.innerHTML = `
+                    <span class="opacity-30 text-2xl font-black">${index + 1}</span>
+                    <div class="cell-controls">
+                        <div class="text-[10px] text-white/70 uppercase tracking-widest mb-1">Width</div>
+                        <div class="control-row">
+                            <button class="btn-mini" onclick="updateSpan(${item.id}, 'col', -1)">-</button>
+                            <span class="text-xs w-4 text-center">${item.colSpan}</span>
+                            <button class="btn-mini" onclick="updateSpan(${item.id}, 'col', 1)">+</button>
+                        </div>
+                        <div class="text-[10px] text-white/70 uppercase tracking-widest mt-1 mb-1">Height</div>
+                        <div class="control-row">
+                            <button class="btn-mini" onclick="updateSpan(${item.id}, 'row', -1)">-</button>
+                            <span class="text-xs w-4 text-center">${item.rowSpan}</span>
+                            <button class="btn-mini" onclick="updateSpan(${item.id}, 'row', 1)">+</button>
+                        </div>
+                        <button class="btn-mini danger mt-2 w-full max-w-[80px]" onclick="removeBox(${item.id})">Remove</button>
+                    </div>
+                `;
+          preview.appendChild(div);
+        });
+
+        generateCode();
+      }
+
+      function updateSpan(id, type, change) {
+        const item = state.items.find((i) => i.id === id);
+        if (!item) return;
+
+        if (type === "col") {
+          const newSpan = item.colSpan + change;
+          if (newSpan >= 1 && newSpan <= state.columns) item.colSpan = newSpan;
+        } else {
+          const newSpan = item.rowSpan + change;
+          if (newSpan >= 1 && newSpan <= 4) item.rowSpan = newSpan; // Max row span 4 for sanity
+        }
+        renderGrid();
+      }
+
+      function addBox() {
+        const newId =
+          state.items.length > 0
+            ? Math.max(...state.items.map((i) => i.id)) + 1
+            : 1;
+        state.items.push({
+          id: newId,
+          colSpan: 1,
+          rowSpan: 1,
+          bg: colors[Math.floor(Math.random() * colors.length)],
+        });
+        renderGrid();
+      }
+
+      function removeBox(id) {
+        state.items = state.items.filter((i) => i.id !== id);
+        renderGrid();
+      }
+
+      // --- Code Generation ---
+      function generateCode() {
+        if (state.activeTab === "html") {
+          let html = `<div class="bento-container">\n`;
+          state.items.forEach((item, i) => {
+            let classes = ["bento-item"];
+            // Only add span classes if > 1 to keep code clean
+            if (item.colSpan > 1) classes.push(`col-span-${item.colSpan}`);
+            if (item.rowSpan > 1) classes.push(`row-span-${item.rowSpan}`);
+            html += `  <div class="${classes.join(" ")}">\n    <!-- Content ${i + 1} -->\n  </div>\n`;
+          });
+          html += `</div>`;
+          codeOutput.textContent = html;
+        } else {
+          let css = `.bento-container {\n  display: grid;\n  grid-template-columns: repeat(${state.columns}, 1fr);\n  gap: ${state.gap}px;\n  width: 100%;\n}\n\n.bento-item {\n  background-color: #1e293b; /* Replace with your colors */\n  border-radius: ${state.radius}px;\n  padding: 24px;\n}\n\n`;
+
+          // Generate necessary span utility classes
+          const uniqueColSpans = [
+            ...new Set(state.items.map((i) => i.colSpan).filter((s) => s > 1)),
+          ].sort();
+          const uniqueRowSpans = [
+            ...new Set(state.items.map((i) => i.rowSpan).filter((s) => s > 1)),
+          ].sort();
+
+          uniqueColSpans.forEach((span) => {
+            css += `.col-span-${span} { grid-column: span ${span}; }\n`;
+          });
+          if (uniqueRowSpans.length > 0 && uniqueColSpans.length > 0)
+            css += "\n";
+          uniqueRowSpans.forEach((span) => {
+            css += `.row-span-${span} { grid-row: span ${span}; }\n`;
+          });
+
+          // Add basic responsive note
+          css += `\n/* Mobile Responsiveness */\n@media (max-width: 768px) {\n  .bento-container {\n    grid-template-columns: 1fr;\n  }\n  .bento-item {\n    grid-column: span 1 !important;\n    grid-row: span 1 !important;\n  }\n}`;
+
+          codeOutput.textContent = css;
+        }
+      }
+
+      function switchTab(tab) {
+        state.activeTab = tab;
+        document.getElementById("tab-html").className =
+          tab === "html"
+            ? "flex-1 py-3 text-sm font-medium text-white border-b-2 border-blue-500 bg-slate-800/50"
+            : "flex-1 py-3 text-sm font-medium text-slate-400 border-b-2 border-transparent hover:text-white hover:bg-slate-800/30";
+
+        document.getElementById("tab-css").className =
+          tab === "css"
+            ? "flex-1 py-3 text-sm font-medium text-white border-b-2 border-blue-500 bg-slate-800/50"
+            : "flex-1 py-3 text-sm font-medium text-slate-400 border-b-2 border-transparent hover:text-white hover:bg-slate-800/30";
+
+        generateCode();
+      }
+
+      function copyCode() {
+        const text = codeOutput.textContent;
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            const toast = document.getElementById("toast");
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+          })
+          .catch((err) => {
+            // Fallback for older browsers
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+              document.execCommand("copy");
+              const toast = document.getElementById("toast");
+              toast.classList.add("show");
+              setTimeout(() => toast.classList.remove("show"), 3000);
+            } catch (err) {
+              console.error("Copy failed", err);
+            }
+            document.body.removeChild(textArea);
+          });
+      }
+
+      // --- Event Listeners ---
+      document.getElementById("col-slider").addEventListener("input", (e) => {
+        state.columns = parseInt(e.target.value);
+        document.getElementById("col-val").textContent = state.columns;
+        // Prevent boxes from overflowing grid width
+        state.items.forEach((item) => {
+          if (item.colSpan > state.columns) item.colSpan = state.columns;
+        });
+        renderGrid();
+      });
+
+      document.getElementById("gap-slider").addEventListener("input", (e) => {
+        state.gap = parseInt(e.target.value);
+        document.getElementById("gap-val").textContent = state.gap + "px";
+        renderGrid();
+      });
+
+      document
+        .getElementById("radius-slider")
+        .addEventListener("input", (e) => {
+          state.radius = parseInt(e.target.value);
+          document.getElementById("radius-val").textContent =
+            state.radius + "px";
+          renderGrid();
+        });
+
+      // Init
+      renderGrid();
+
+      function injectRecommendedTools() {
+        const template = document.getElementById("recommended-tools-template");
+
+        const desktopTarget = document.getElementById(
+          "recommended-tools-desktop",
+        );
+
+        const mobileTarget = document.getElementById(
+          "recommended-tools-mobile",
+        );
+
+        if (desktopTarget) {
+          desktopTarget.appendChild(template.content.cloneNode(true));
+        }
+
+        if (mobileTarget) {
+          mobileTarget.appendChild(template.content.cloneNode(true));
+        }
+      }
+
+      injectRecommendedTools();
+    </script>
+
+    <!-- ========================================= -->
+    <!-- AI  Popup card js -->
+    <!-- ========================================= -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const popup = document.getElementById("aiPopup");
+        const closePopup = document.getElementById("closePopup");
+
+        if (!popup || !closePopup) return;
+
+        // Remove this line later if you want the popup to appear only once.
+        localStorage.removeItem("builderPopup");
+
+        if (!localStorage.getItem("builderPopup")) {
+          setTimeout(function () {
+            popup.classList.remove("hidden");
+            popup.style.display = "flex";
+
+            localStorage.setItem("builderPopup", "true");
+          }, 10000);
+        }
+
+        closePopup.addEventListener("click", function () {
+          popup.classList.add("hidden");
+          popup.style.display = "none";
+        });
+
+        popup.addEventListener("click", function (e) {
+          if (e.target === popup) {
+            popup.classList.add("hidden");
+            popup.style.display = "none";
+          }
+        });
+      });
+    </script>
+
+    <!-- ========================================= -->
+    <!-- AI  affiliate-ads js -->
+    <!-- ========================================= -->
+    <script>
+      const ads = [
+        {
+          text: "🚀 Create complete websites by chatting with AI",
+
+          button: "Start Free →",
+
+          url: "https://readdy.ai/?via=joshua-eddy",
+        },
+
+        {
+          text: "🎨 Generate beautiful Bento landing pages",
+
+          button: "Generate UI →",
+
+          url: "https://readdy.ai/?via=joshua-eddy",
+        },
+
+        {
+          text: "⚡ Turn your design into a full React app",
+
+          button: "Build App →",
+
+          url: "https://bolt.cello.so/3ME6XnH5nD4",
+        },
+
+        {
+          text: "💻 Build SaaS dashboards in minutes",
+
+          button: "Create Dashboard →",
+
+          url: "https://bolt.cello.so/3ME6XnH5nD4",
+        },
+
+        {
+          text: "🤖 Launch AI web apps without starting from scratch",
+
+          button: "Launch Faster →",
+
+          url: "https://bolt.cello.so/3ME6XnH5nD4",
+        },
+      ];
+
+      let current = 0;
+
+      setInterval(() => {
+        current = (current + 1) % ads.length;
+
+        const item = ads[current];
+
+        const text = document.getElementById("aiBarText");
+
+        const btn = document.getElementById("aiBarButton");
+
+        text.style.opacity = 0;
+
+        btn.style.opacity = 0;
+
+        setTimeout(() => {
+          text.innerHTML = item.text;
+
+          btn.innerHTML = item.button;
+
+          btn.href = item.url;
+
+          text.style.opacity = 1;
+
+          btn.style.opacity = 1;
+        }, 300);
+      }, 5000);
+    </script>
+  </body>
+</html>

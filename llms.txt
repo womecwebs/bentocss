@@ -1,0 +1,104 @@
+# Bento Grid CSS Generator | Free Layout Builder
+
+> Visually build trendy Bento Box UI layouts and instantly generate the HTML and CSS Grid code. Free developer tool.
+
+## W Don't want to code this? Build stunning Bento grids visually without writing CSS. Try Webflow for free.
+[W Don't want to code this? Build stunning Bento grids visually without writing CSS. Try Webflow for free.](https://bentocss.netlify.app/)
+
+## Hostinger Hosting Recommended Deploy your layout instantly with fast hosting and free SSL. Deploy your site →
+[Hostinger Hosting Recommended Deploy your layout instantly with fast hosting and free SSL. Deploy your site →](https://www.hostinger.com/)
+
+## Webflow Builder Build Bento layouts visually without coding. Design visually →
+[Webflow Builder Build Bento layouts visually without coding. Design visually →](https://webflow.com/)
+
+## Namecheap Domains Secure a domain for your new project instantly. Get your domain →
+[Namecheap Domains Secure a domain for your new project instantly. Get your domain →](https://www.namecheap.com/)
+
+## Envato Elements Icons, UI kits, fonts and assets for production-ready layouts. Explore assets →
+[Envato Elements Icons, UI kits, fonts and assets for production-ready layouts. Explore assets →](https://www.envato.com/)
+
+## Creative Market UI Kits Premium templates, icons and interface kits. Browse resources →
+[Creative Market UI Kits Premium templates, icons and interface kits. Browse resources →](https://creativemarket.com/)
+
+## Tailwind Bento Grid Generator
+[Tailwind Bento Grid Generator](https://bentocss.netlify.app/tailwind-bento-generator)
+
+## CSS Grid Guide
+[CSS Grid Guide](https://bentocss.netlify.app/design-guide)
+
+
+
+# Tailwind Bento Grid Generator | Export Tailwind & CSS Layouts
+
+> The ultimate Bento Grid builder for Tailwind CSS. Visually design your layout and export production-ready Tailwind classes or raw CSS Grid code instantly.
+
+
+## Templates
+[Templates](https://bentocss.netlify.app/templates)
+
+## Tailwind Guide
+[Tailwind Guide](https://bentocss.netlify.app/tailwind-guide)
+
+# Bento Grid Templates | 10+ Free UI Layouts & Inspiration
+
+> Browse 10+ free Bento Grid templates. One-click layouts for Saa S dashboards, Apple-style product pages, and creative portfolios.
+
+## Templates
+[Templates](https://bentocss.netlify.app/templates)
+
+## Design Guide
+[Design Guide](https://bentocss.netlify.app/design-guide)
+
+## Tailwind vs CSS
+[Tailwind vs CSS](https://bentocss.netlify.app/tailwind-guide)
+
+## Open Builder
+[Open Builder](https://bentocss.netlify.app/)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=apple)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=saas)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=portfolio)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=features)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=blog)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=bio)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=t-shape)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=zigzag)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=tech)
+
+## Edit Layout
+[Edit Layout](https://bentocss.netlify.app/tailwind-bento-generator?template=quad)
+
+## Hostinger Hosting Recommended Deploy your layout instantly with fast hosting and free SSL. Deploy your site →
+[Hostinger Hosting Recommended Deploy your layout instantly with fast hosting and free SSL. Deploy your site →](https://www.hostinger.com/)
+
+## Webflow Builder Build Bento layouts visually without coding. Design visually →
+[Webflow Builder Build Bento layouts visually without coding. Design visually →](https://webflow.com/)
+
+## Namecheap Domains Secure a domain for your new project instantly. Get your domain →
+[Namecheap Domains Secure a domain for your new project instantly. Get your domain →](https://www.namecheap.com/)
+
+## Envato Elements Icons, UI kits, fonts and assets for production-ready layouts. Explore assets →
+[Envato Elements Icons, UI kits, fonts and assets for production-ready layouts. Explore assets →](https://www.envato.com/)
+
+## Creative Market UI Kits Premium templates, icons and interface kits. Browse resources →
+[Creative Market UI Kits Premium templates, icons and interface kits. Browse resources →](https://creativemarket.com/)
+
+## Tailwind Bento Grid Generator
+[Tailwind Bento Grid Generator](https://bentocss.netlify.app/tailwind-bento-generator)

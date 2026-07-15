@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S1NJHJ5T30"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-S1NJHJ5T30");
+    </script>
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bento Grid UX Design Guide | Best Practices & Stacking</title>
+    <meta
+      name="description"
+      content="Learn the principles of Bento UI design. Master visual hierarchy, mobile responsive stacking, and content organization."
+    />
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- canonical -->
+    <link
+      rel="canonical"
+      href="https://bentocss.netlify.app/design-guide.html"
+    />
+
+    <!-- open graphs -->
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Bento Grid UX Design Guide | Best Practices & Stacking"
+    />
+    <meta
+      property="og:description"
+      content="Learn Bento Grid UX principles: visual hierarchy, mobile stacking, spacing, and content organization that actually converts."
+    />
+    <meta
+      property="og:url"
+      content="https://bentocss.netlify.app/design-guide.html"
+    />
+    <meta property="og:site_name" content="BentoGrid" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Bento Grid UX Design Guide | Best Practices & Stacking"
+    />
+    <meta
+      name="twitter:description"
+      content="A practical UX guide to designing high-converting Bento Grid layouts."
+    />
+    <meta name="twitter:site" content="@bentogrid" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Bento Grid UX Design Guide: Best Practices & Stacking",
+        "description": "A practical UX design guide covering visual hierarchy, mobile stacking strategies, spacing, and content organization for Bento Grid layouts.",
+        "url": "https://bentocss.netlify.app/design-guide.html",
+        "inLanguage": "en",
+        "author": {
+          "@type": "Organization",
+          "name": "BentoGrid",
+          "url": "https://bentocss.netlify.app"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BentoGrid",
+          "url": "https://bentocss.netlify.app"
+        },
+        "about": [
+          "Bento Grid UX",
+          "UI Design",
+          "Visual Hierarchy",
+          "Responsive Layout Design"
+        ],
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://bentocss.netlify.app/design-guide.html"
+        }
+      }
+    </script>
+
+    <meta name="robots" content="index, follow" />
+
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #f8fafc;
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+      }
+      .prose h2 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        color: #3b82f6;
+      }
+      .prose p {
+        margin-bottom: 1.5rem;
+        color: #cbd5e1;
+      }
+      .card {
+        background: #1e293b;
+        border: 1px solid #334155;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        margin-bottom: 2rem;
+      }
+    </style>
+
+    <!-- favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/site.webmanifest" />
+  </head>
+  <body>
+    <nav
+      class="border-b border-slate-800 p-4 sticky top-0 bg-[#0f172a]/80 backdrop-blur-md z-50"
+    >
+      <div class="max-w-4xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg grid grid-cols-2 gap-1 p-1.5"
+          >
+            <div class="bg-white rounded-sm col-span-2"></div>
+            <div class="bg-white/70 rounded-sm"></div>
+            <div class="bg-white/40 rounded-sm"></div>
+          </div>
+          <h1
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400"
+          >
+            BentoGrid
+          </h1>
+        </div>
+        <div class="space-x-4 text-sm font-medium">
+          <a href="/templates.html" class="hover:text-blue-400 transition"
+            >Templates</a
+          >
+          <a href="/design-guide.html" class="text-blue-400">Design Guide</a>
+          <a href="/index.html" class="bg-blue-600 px-3 py-1.5 rounded-md"
+            >Builder</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <article class="max-w-3xl mx-auto px-4 py-16">
+      <header class="mb-12">
+        <span class="text-blue-500 font-bold tracking-widest uppercase text-xs"
+          >Masterclass</span
+        >
+        <h1 class="text-4xl md:text-5xl font-black mt-2 mb-6">
+          Designing High-Converting Bento Grids
+        </h1>
+        <p class="text-xl text-slate-400">
+          Bento UI isn't just about putting boxes in a grid—it's about creating
+          a narrative through hierarchy.
+        </p>
+      </header>
+
+      <section class="prose">
+        <h2>1. Visual Hierarchy: The Anchor Box</h2>
+        <p>
+          Every successful bento grid has an "Anchor." This is usually a 2x2 or
+          3x2 box that contains your most important Call to Action (CTA) or key
+          feature. Without an anchor, the eye wanders aimlessly across the
+          boxes.
+        </p>
+        <div class="card">
+          <strong class="text-white block mb-2">Rule of Thumb:</strong>
+          Your primary feature should occupy at least 40% of the total grid
+          area.
+        </div>
+
+        <h2>2. Content Types for Box Sizes</h2>
+        <p>
+          Choosing the right box for the right content is critical for
+          readability:
+        </p>
+        <ul class="list-disc pl-6 space-y-4 text-slate-300 mb-8">
+          <li>
+            <strong>1x1 Boxes:</strong> Best for social icons, status
+            indicators, or singular numbers (e.g., "50k users").
+          </li>
+          <li>
+            <strong>2x1 (Horizontal):</strong> Ideal for quotes, search bars, or
+            small data visualizations like sparklines.
+          </li>
+          <li>
+            <strong>1x2 (Vertical):</strong> Perfect for navigation menus or
+            tall images (like a smartphone mockup).
+          </li>
+          <li>
+            <strong>2x2+ (The Hero):</strong> Use for detailed feature
+            descriptions, large video embeds, or complex interactive elements.
+          </li>
+        </ul>
+
+        <h2>3. Mobile Stacking Strategy</h2>
+        <p>
+          One common mistake is letting grids become too small on mobile. Under
+          768px (tablets), bento grids should typically collapse into a single
+          column. However, you can maintain a 2-column "mini-bento" for small
+          items to save vertical space.
+        </p>
+        <div class="card bg-blue-900/20 border-blue-500/30">
+          <p class="mb-0 text-blue-100">
+            <strong>Pro Tip:</strong> Use CSS Media Queries or Tailwind's
+            <code>sm:</code> and <code>md:</code> prefixes to change
+            <code>grid-template-columns</code> from 1 on mobile to 4 on desktop.
+          </p>
+        </div>
+
+        <h2>4. Whitespace and "The Gap"</h2>
+        <p>
+          The gap between your items defines the "vibe" of your UI. A tight gap
+          (8px-12px) feels technical and dense (like a dashboard). A wide gap
+          (24px-32px) feels premium and editorial (like Apple or a luxury
+          portfolio).
+        </p>
+      </section>
+
+      <div
+        class="mt-16 p-8 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-center"
+      >
+        <h3 class="text-2xl font-bold mb-4">Ready to build your grid?</h3>
+        <p class="mb-6 opacity-90">
+          Use our visual builder to apply these rules in seconds.
+        </p>
+        <a
+          href="/index.html"
+          class="bg-white text-blue-600 px-8 py-3 rounded-xl font-black hover:scale-105 transition transform inline-block"
+          >Start Generating Now</a
+        >
+      </div>
+    </article>
+
+    <!-- Recommended Tools Template -->
+    <section class="mt-12">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-2 text-white">
+          Deploy & Enhance Your Layout
+        </h2>
+
+        <p class="text-slate-400 mb-8">
+          After generating your grid, these tools help you launch, design, and
+          grow your website faster.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Hostinger -->
+          <a
+            href="https://www.hostinger.com/"
+            rel="noopener"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-blue-500 transition-all hover:scale-[1.02]"
+          >
+            <div class="flex justify-between mb-4">
+              <h3
+                class="font-semibold text-lg text-white group-hover:text-blue-400"
+              >
+                Hostinger Hosting
+              </h3>
+              <span
+                class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full"
+              >
+                Recommended
+              </span>
+            </div>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Deploy your layout instantly with fast hosting and free SSL.
+            </p>
+
+            <div class="text-blue-400 font-medium text-sm">
+              Deploy your site →
+            </div>
+          </a>
+
+          <!-- Webflow -->
+          <a
+            href="https://webflow.com/"
+            rel="noopener"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-purple-500 transition-all hover:scale-[1.02]"
+          >
+            <h3
+              class="font-semibold text-lg text-white group-hover:text-purple-400 mb-4"
+            >
+              Webflow Builder
+            </h3>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Build Bento layouts visually without coding.
+            </p>
+
+            <div class="text-purple-400 font-medium text-sm">
+              Design visually →
+            </div>
+          </a>
+
+          <!-- Namecheap -->
+          <a
+            href="https://www.namecheap.com/"
+            rel="noopener"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-green-500 transition-all hover:scale-[1.02]"
+          >
+            <h3
+              class="font-semibold text-lg text-white group-hover:text-green-400 mb-4"
+            >
+              Namecheap Domains
+            </h3>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Secure a domain for your new project instantly.
+            </p>
+
+            <div class="text-green-400 font-medium text-sm">
+              Get your domain →
+            </div>
+          </a>
+
+          <!-- Envato -->
+          <a
+            href="https://www.envato.com/"
+            rel="noopener"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-orange-500 transition-all hover:scale-[1.02]"
+          >
+            <h3
+              class="font-semibold text-lg text-white group-hover:text-orange-400 mb-4"
+            >
+              Envato Elements
+            </h3>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Icons, UI kits, fonts and assets for production-ready layouts.
+            </p>
+
+            <div class="text-orange-400 font-medium text-sm">
+              Explore assets →
+            </div>
+          </a>
+
+          <!-- Creative Market -->
+          <a
+            href="https://creativemarket.com/"
+            rel="nofollow sponsored"
+            target="_blank"
+            class="group rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 p-6 hover:border-pink-500 transition-all hover:scale-[1.02] md:col-span-2"
+          >
+            <h3
+              class="font-semibold text-lg text-white group-hover:text-pink-400 mb-4"
+            >
+              Creative Market UI Kits
+            </h3>
+
+            <p class="text-sm text-slate-400 mb-4">
+              Premium templates, icons and interface kits.
+            </p>
+
+            <div class="text-pink-400 font-medium text-sm">
+              Browse resources →
+            </div>
+          </a>
+        </div>
+
+        <p class="text-xs text-slate-500 mt-6">
+          Some links may be affiliate links. We may earn a commission at no
+          extra cost to you.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/80 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+        >
+          <!-- Brand -->
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg grid grid-cols-2 gap-1 p-1.5"
+            >
+              <div class="bg-white rounded-sm col-span-2"></div>
+              <div class="bg-white/70 rounded-sm"></div>
+              <div class="bg-white/40 rounded-sm"></div>
+            </div>
+            <div>
+              <p class="font-semibold text-white">BentoGrid Generator</p>
+              <p class="text-xs text-slate-400">
+                Visual CSS Grid & Bento Layout Builder
+              </p>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
+            <a href="/" class="hover:text-white transition">Home</a>
+            <a
+              href="/tailwind-bento-generator.html"
+              class="hover:text-white transition"
+              >Tailwind Bento Grid Generator</a
+            >
+            <a href="/design-guide.html" class="hover:text-white transition"
+              >CSS Grid Guide</a
+            >
+            <a href="/templates.html" class="hover:text-white transition"
+              >Templates</a
+            >
+            <a href="/tailwind-guide.html" class="hover:text-white transition"
+              >Tailwind Guide</a
+            >
+            <a href="/privacy-policy.html" class="hover:text-white transition"
+              >Privacy Poilicy</a
+            >
+            <a href="/about.html" class="hover:text-white transition"
+              >About Bentogrid</a
+            >
+            <a href="/contact.html" class="hover:text-white transition"
+              >Contact Us</a
+            >
+          </nav>
+        </div>
+
+        <!-- Bottom bar -->
+        <div
+          class="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500"
+        >
+          <p>
+            © <span id="year"></span> BentoGrid Generator. All rights reserved.
+          </p>
+
+          <p>Built for developers. No sign-up. No tracking.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
