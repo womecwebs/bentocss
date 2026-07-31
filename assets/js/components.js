@@ -10,7 +10,8 @@
       ["Hero Builder", "hero-section-generator"],
       ["Pricing Builder", "pricing-table-generator"],
       ["Navbar Builder", "navbar-generator"],
-      ["Footer Builder", "footer-generator"]
+      ["Footer Builder", "footer-generator"],
+      ["Other CSS Tools", "other-tools"]
     ]],
     ["Examples", [
       ["CSS Grid Examples", "css-grid-examples"],

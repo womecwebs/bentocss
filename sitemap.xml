@@ -127,6 +127,72 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://bentocss.netlify.app/other-tools/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/container-query-builder.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/subgrid-generator.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/masonry-layout-generator.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/responsive-card-grid-generator.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/intrinsic-sidebar-generator.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/holy-grail-layout-generator.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/grid-named-areas-designer.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/responsive-media-builder.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/container-unit-calculator.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bentocss.netlify.app/other-tools/responsive-breakpoint-planner.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://bentocss.netlify.app/guides/css-grid-examples.html</loc>
     <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
