@@ -1,0 +1,12 @@
+# BentoCSS permanent route migrations.
+# Generated from assets/js/routes.js. Keep these redirects for at least one year.
+/templates /templates.html 301!
+/tools/css-grid-examples.html /guides/css-grid-examples.html 301!
+/tools/bento-grid-examples.html /guides/bento-grid-examples.html 301!
+/tools/best-bento-layouts.html /guides/best-bento-layouts.html 301!
+/tools/css-grid-cheatsheet.html /guides/css-grid-cheatsheet.html 301!
+/tools/tailwind-grid-cheatsheet.html /guides/tailwind-grid-cheatsheet.html 301!
+/tools/responsive-dashboard-layouts.html /guides/responsive-dashboard-layouts.html 301!
+/tools/landing-page-layouts.html /guides/landing-page-layouts.html 301!
+/tools/portfolio-layouts.html /guides/portfolio-layouts.html 301!
+/tools/ui-layout-templates.html /templates/ui-layout-templates.html 301!
