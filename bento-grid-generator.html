@@ -1,0 +1,1639 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>Bento Grid Generator – Free Visual CSS Grid Layout Builder</title>
+    <meta
+      name="description"
+      content="Free Bento Grid Generator. Visually create, edit and resize bento box card layouts, then export clean responsive HTML & CSS Grid code instantly. No sign-up required."
+    />
+    <meta
+      name="keywords"
+      content="bento grid generator css grid generator, bento box layout, bento css, grid layout builder, html css export, visual grid builder"
+    />
+    <meta name="author" content="BentoCSS" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1"
+    />
+    <link
+      rel="canonical"
+      href="https://bentocss.netlify.app/bento-grid-generator"
+    />
+    <meta name="theme-color" content="#f4f4f5" />
+
+    <!-- ===== OPEN GRAPH (Facebook / LinkedIn / Discord) ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BentoCSS" />
+    <meta
+      property="og:title"
+      content="Bento Grid Generator – Free Visual CSS Grid Layout Builder"
+    />
+    <meta
+      property="og:description"
+      content="Build trendy bento box layouts visually. Edit, resize and export clean HTML & CSS Grid code instantly — free."
+    />
+    <meta
+      property="og:url"
+      content="https://bentocss.netlify.app/bento-grid-generator"
+    />
+    <meta
+      property="og:image"
+      content="https://bentocss.netlify.app/images/og-bento-grid-generator.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Bento Grid Generator tool interface"
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ===== TWITTER / X ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Bento Grid Generator – Free Visual CSS Grid Layout Builder"
+    />
+    <meta
+      name="twitter:description"
+      content="Visually build, edit and resize bento grid layouts. Export clean HTML & CSS instantly."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bentocss.netlify.app/images/og-bento-grid-generator.png"
+    />
+
+    <!-- ===== GEO / REGIONAL ===== -->
+    <meta name="geo.region" content="US" />
+    <meta name="geo.placename" content="United States" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- ===== SCHEMA.ORG (AEO / Rich Results) ===== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Bento Grid Generator",
+        "url": "https://bentocss.netlify.app/bento-grid-generator",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any (Web Browser)",
+        "description": "Free visual bento grid generator to build, edit and resize CSS Grid layouts and export clean HTML and CSS code.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "214"
+        },
+        "featureList": [
+          "Visual bento grid builder",
+          "Resize and edit cards",
+          "Export HTML & CSS",
+          "Import / Save layouts",
+          "Ready-made templates",
+          "Responsive breakpoint output"
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "BentoCSS",
+          "url": "https://bentocss.netlify.app"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this bento grid generator free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, the Bento Grid Generator is 100% free with no sign-up required. You can build unlimited layouts and export clean HTML and CSS."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I edit and resize bento cards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Click any card to select it, then resize it using the span controls or arrow keys, edit its text, and change its background color or gradient."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the exported code work responsively?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The exported CSS includes a mobile breakpoint so the bento layout collapses gracefully to fewer columns on small screens."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need JavaScript for the exported layout?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The exported bento grid is pure HTML and CSS using CSS Grid."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to create a bento grid layout",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Add cards",
+            "text": "Click Add Card to place new bento blocks on the canvas."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Edit & resize",
+            "text": "Select a card, edit its text and resize it with the +/- span controls."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Export code",
+            "text": "Click Export to copy clean responsive HTML and CSS Grid code."
+          }
+        ]
+      }
+    </script>
+
+    <!-- ===== FAVICONS (replace with your uploaded logo files) ===== -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #f4f4f5;
+        --panel: #ffffff;
+        --border: #e4e4e7;
+        --text: #18181b;
+        --muted: #71717a;
+        --accent: #18181b;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+      .header-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 24px;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .brand img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+      }
+      .brand-text b {
+        font-size: 20px;
+        font-weight: 800;
+        display: block;
+        line-height: 1.1;
+      }
+      .brand-text span {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .toolbar {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+        font-size: 13.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.15s;
+      }
+      .btn:hover {
+        background: #fafafa;
+        transform: translateY(-1px);
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+      .btn.primary:hover {
+        background: #3f3f46;
+      }
+
+      /* ===== CANVAS ===== */
+      main {
+        flex: 1;
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      .canvas-wrap {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px;
+        min-height: 560px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+      .bento-canvas {
+        display: grid;
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .bento-card {
+        position: relative;
+        border-radius: 16px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+        overflow: hidden;
+        transition:
+          box-shadow 0.15s,
+          outline-color 0.15s;
+        outline: 2px solid transparent;
+      }
+      .bento-card:hover {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      }
+      .bento-card.selected {
+        outline: 2px solid #18181b;
+        outline-offset: 2px;
+      }
+      .card-text {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 1.2;
+        word-break: break-word;
+        pointer-events: none;
+        max-width: 100%;
+      }
+      .card-sub {
+        font-size: 13px;
+        margin-top: 6px;
+        opacity: 0.85;
+        pointer-events: none;
+      }
+
+      .card-actions {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        gap: 4px;
+        opacity: 0;
+        transition: 0.15s;
+        z-index: 5;
+      }
+      .bento-card:hover .card-actions,
+      .bento-card.selected .card-actions {
+        opacity: 1;
+      }
+      .icon-btn {
+        width: 28px;
+        height: 28px;
+        border: none;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        font-size: 13px;
+        display: grid;
+        place-items: center;
+      }
+      .icon-btn.danger {
+        color: #dc2626;
+      }
+
+      .resize-panel {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 4px;
+        opacity: 0;
+        transition: 0.15s;
+        z-index: 5;
+        background: #fff;
+        padding: 4px;
+        border-radius: 10px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+      }
+      .bento-card:hover .resize-panel,
+      .bento-card.selected .resize-panel {
+        opacity: 1;
+      }
+      .resize-panel button {
+        width: 24px;
+        height: 24px;
+        border: none;
+        border-radius: 6px;
+        background: #f4f4f5;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .resize-panel span {
+        font-size: 11px;
+        font-weight: 700;
+        min-width: 34px;
+        display: grid;
+        place-items: center;
+      }
+
+      /* ===== INSPECTOR ===== */
+      .inspector {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      .inspector h2 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .field label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .field .val {
+        color: #2563eb;
+        font-family: monospace;
+      }
+      input[type="range"] {
+        width: 100%;
+        accent-color: #18181b;
+      }
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font: inherit;
+        font-size: 13.5px;
+      }
+      .swatches {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .swatch {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid transparent;
+      }
+      .swatch:hover,
+      .swatch.active {
+        border-color: #18181b;
+      }
+
+      /* ===== CODE MODAL ===== */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .modal-box {
+        background: #fff;
+        border-radius: 18px;
+        width: 100%;
+        max-width: 760px;
+        max-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+      }
+      .tabs {
+        display: flex;
+        gap: 6px;
+      }
+      pre {
+        background: #18181b;
+        color: #e4e4e7;
+        padding: 20px;
+        overflow: auto;
+        font-size: 12.5px;
+        line-height: 1.55;
+        flex: 1;
+        margin: 0;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        position: relative;
+      }
+      .copy-btn {
+        position: sticky;
+        float: right;
+      }
+
+      /* ===== SEO CONTENT ===== */
+      .seo-content {
+        max-width: 1180px;
+        margin: 48px auto 32px;
+        padding: 0 24px;
+        line-height: 1.75;
+        color: #3f3f46;
+      }
+      .seo-content h2 {
+        color: var(--text);
+        margin: 28px 0 10px;
+        font-size: 24px;
+      }
+      .seo-content h3 {
+        color: var(--text);
+        margin: 20px 0 8px;
+        font-size: 17px;
+      }
+      .faq-item {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin-bottom: 10px;
+      }
+      .faq-item h3 {
+        margin: 0 0 6px;
+        font-size: 15px;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        background: #fff;
+        padding: 24px;
+        text-align: center;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translate(-50%, 80px);
+        background: #18181b;
+        color: #fff;
+        padding: 12px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 300;
+      }
+      .toast.show {
+        transform: translate(-50%, 0);
+      }
+
+      @media (max-width: 720px) {
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        .card-text {
+          font-size: 18px;
+        }
+        .header-inner {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ HEADER ============ -->
+    <header>
+      <div class="header-inner">
+        <a
+          class="brand"
+          href="https://bentocss.netlify.app"
+          aria-label="BentoCSS home"
+        >
+          <img
+            src="/images/logo.png"
+            alt="Bento Grid Generator logo"
+            width="40"
+            height="40"
+          />
+          <span class="brand-text"><b>Bento</b><span>Generator</span></span>
+        </a>
+        <nav class="toolbar" aria-label="Generator toolbar">
+          <button class="btn" onclick="openTemplates()">✨ Templates</button>
+          <button class="btn primary" onclick="addCard()">＋ Add Card</button>
+          <button class="btn" onclick="saveLayout()">💾 Save</button>
+          <button class="btn" onclick="loadLayout()">📂 Load</button>
+          <button class="btn" onclick="openExport()">⬇ Export</button>
+          <button
+            class="btn"
+            onclick="document.getElementById('importFile').click()"
+          >
+            ⬆ Import
+          </button>
+          <input
+            type="file"
+            id="importFile"
+            accept=".json"
+            hidden
+            onchange="importLayout(event)"
+          />
+          <button class="btn" onclick="clearAll()">🗑 Clear All</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============ MAIN ============ -->
+    <main>
+      <h1
+        style="
+          font-size: 15px;
+          color: var(--muted);
+          font-weight: 600;
+          margin-bottom: 12px;
+        "
+      >
+        Bento Grid Generator — click a card to edit, resize and export
+      </h1>
+
+      <div class="canvas-wrap">
+        <div
+          id="canvas"
+          class="bento-canvas"
+          role="region"
+          aria-label="Bento grid canvas"
+        ></div>
+      </div>
+
+      <!-- Inspector -->
+      <section class="inspector" aria-label="Grid settings">
+        <h2>Grid Settings</h2>
+        <div class="grid-2">
+          <div class="field">
+            <label>Columns <span class="val" id="colVal">6</span></label>
+            <input
+              type="range"
+              id="colRange"
+              min="2"
+              max="8"
+              value="6"
+              oninput="setCols(this.value)"
+            />
+          </div>
+          <div class="field">
+            <label>Row Height <span class="val" id="rowVal">110px</span></label>
+            <input
+              type="range"
+              id="rowRange"
+              min="70"
+              max="180"
+              step="5"
+              value="110"
+              oninput="setRowH(this.value)"
+            />
+          </div>
+          <div class="field">
+            <label>Gap <span class="val" id="gapVal">16px</span></label>
+            <input
+              type="range"
+              id="gapRange"
+              min="0"
+              max="40"
+              step="2"
+              value="16"
+              oninput="setGap(this.value)"
+            />
+          </div>
+          <div class="field">
+            <label>Card Radius <span class="val" id="radVal">16px</span></label>
+            <input
+              type="range"
+              id="radRange"
+              min="0"
+              max="40"
+              step="2"
+              value="16"
+              oninput="setRadius(this.value)"
+            />
+          </div>
+        </div>
+
+        <h2 style="margin-top: 22px">Selected Card</h2>
+        <div class="grid-2">
+          <div class="field">
+            <label>Card text</label>
+            <input
+              type="text"
+              id="cardText"
+              placeholder="Card headline"
+              oninput="updateCard('text', this.value)"
+            />
+          </div>
+          <div class="field">
+            <label>Subtext</label>
+            <input
+              type="text"
+              id="cardSub"
+              placeholder="Optional small text"
+              oninput="updateCard('sub', this.value)"
+            />
+          </div>
+          <div class="field">
+            <label>Text color</label>
+            <input
+              type="color"
+              id="cardColor"
+              value="#ffffff"
+              style="
+                width: 100%;
+                height: 38px;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+              "
+              oninput="updateCard('color', this.value)"
+            />
+          </div>
+          <div class="field">
+            <label>Text size <span class="val" id="fsVal">24px</span></label>
+            <input
+              type="range"
+              id="fsRange"
+              min="12"
+              max="48"
+              value="24"
+              oninput="updateCard('fs', this.value)"
+            />
+          </div>
+        </div>
+        <div class="field" style="margin-top: 14px">
+          <label>Background</label>
+          <input
+            type="color"
+            id="cardBg"
+            value="#f59e0b"
+            style="
+              width: 100%;
+              height: 38px;
+              border: 1px solid var(--border);
+              border-radius: 8px;
+            "
+            oninput="updateCard('bg', this.value)"
+          />
+          <div class="swatches" id="swatches"></div>
+        </div>
+        <div style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap">
+          <button class="btn" onclick="resizeSelected('w', 1)">Width +</button>
+          <button class="btn" onclick="resizeSelected('w', -1)">Width −</button>
+          <button class="btn" onclick="resizeSelected('h', 1)">Height +</button>
+          <button class="btn" onclick="resizeSelected('h', -1)">
+            Height −
+          </button>
+          <button class="btn" onclick="moveSelected(-1)">◀ Move</button>
+          <button class="btn" onclick="moveSelected(1)">Move ▶</button>
+          <button class="btn" onclick="duplicateSelected()">⧉ Duplicate</button>
+          <button class="btn" style="color: #dc2626" onclick="deleteSelected()">
+            🗑 Delete card
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <article class="seo-content">
+      <h2>Free Bento Grid Generator for Modern Web Design</h2>
+      <p>
+        Bento grids are the trendiest way to structure modern landing pages,
+        dashboards and portfolios. This free
+        <strong>bento grid generator</strong> lets you visually build, edit and
+        resize bento box cards, then export production-ready HTML and CSS Grid
+        code with a single click.
+      </p>
+
+      <h2>How to Use This Bento Grid Generator</h2>
+      <p>
+        Click <strong>Add Card</strong> to place a new block, select it to edit
+        its text and background, and resize it with the width/height controls or
+        the on-card buttons.order cards with the move arrows, save your layout
+        locally, or export clean code instantly.
+      </p>
+
+      <h2>Why Choose a Bento Box Layout?</h2>
+      <p>
+        Bento layouts combine mixed-size content blocks inside a structured CSS
+        Grid, creating visual hierarchy and rhythm. Top SaaS products and
+        startups use bento grids to showcase features, testimonials, stats and
+        calls to action.
+      </p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Is this bento grid generator free?</h3>
+        <p>Yes — 100% free, no sign-up, unlimited exports.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I edit and resize cards?</h3>
+        <p>
+          Yes. Select any card to edit its text, colors and spans; use the
+          width/height buttons or arrow keys to resize.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Is the exported code responsive?</h3>
+        <p>
+          Yes. Exported CSS includes a mobile breakpoint that collapses the grid
+          gracefully.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need JavaScript for the exported layout?</h3>
+        <p>No. The exported bento grid is pure HTML and CSS.</p>
+      </div>
+    </article>
+
+    <!-- ============ EXPORT MODAL ============ -->
+    <div
+      class="modal"
+      id="exportModal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Export code"
+    >
+      <div class="modal-box">
+        <div class="modal-head">
+          <div class="tabs">
+            <button
+              class="btn primary"
+              id="tabHtml"
+              onclick="switchTab('html')"
+            >
+              HTML
+            </button>
+            <button class="btn" id="tabCss" onclick="switchTab('css')">
+              CSS
+            </button>
+          </div>
+          <div style="display: flex; gap: 8px">
+            <button class="btn primary" onclick="copyCode()">📋 Copy</button>
+            <button class="btn" onclick="closeExport()">✕</button>
+          </div>
+        </div>
+        <pre><code id="codeOut"></code></pre>
+      </div>
+    </div>
+
+    <!-- ============ TEMPLATES MODAL ============ -->
+    <div
+      class="modal"
+      id="tplModal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Templates"
+    >
+      <div class="modal-box" style="max-width: 560px">
+        <div class="modal-head">
+          <strong>Choose a Template</strong>
+          <button
+            class="btn"
+            onclick="
+              document.getElementById('tplModal').classList.remove('open')
+            "
+          >
+            ✕
+          </button>
+        </div>
+        <div style="padding: 20px; display: grid; gap: 10px">
+          <button class="btn" onclick="applyTemplate('shop')">
+            🛍 Storefront Promo
+          </button>
+          <button class="btn" onclick="applyTemplate('saas')">
+            📊 SaaS Dashboard
+          </button>
+          <button class="btn" onclick="applyTemplate('portfolio')">
+            🎨 Portfolio
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast">Copied!</div>
+
+    <footer>
+      © <span id="year"></span>
+      <a href="https://bentocss.netlify.app" style="color: inherit">BentoCSS</a>
+      ·
+      <a href="/bento-grid-generator" style="color: inherit"
+        >Bento Grid Generator</a
+      >
+      · Built for developers. No sign-up.
+    </footer>
+    <script>
+      /* ===== STATE ===== */
+      var PALETTE = [
+        "#f59e0b",
+        "#18181b",
+        "#ec4899",
+        "#e5e5e5",
+        "#3b82f6",
+        "#a78bfa",
+        "#ef4444",
+        "#10b981",
+        "linear-gradient(135deg,#f59e0b,#ef4444)",
+        "linear-gradient(135deg,#8b5cf6,#ec4899)",
+        "linear-gradient(135deg,#3b82f6,#06b6d4)",
+      ];
+
+      var state = {
+        cols: 6,
+        rowH: 110,
+        gap: 16,
+        radius: 16,
+        selected: null,
+        nextId: 1,
+        cards: [],
+      };
+
+      var TEMPLATES = {
+        shop: [
+          {
+            w: 3,
+            h: 2,
+            text: "NEW COLLECTION",
+            sub: "Summer drop",
+            bg: "#f59e0b",
+            color: "#fff",
+            fs: 30,
+          },
+          {
+            w: 1,
+            h: 2,
+            text: "50% OFF",
+            sub: "",
+            bg: "#18181b",
+            color: "#facc15",
+            fs: 24,
+          },
+          {
+            w: 1,
+            h: 1,
+            text: "Free",
+            sub: "Shipping",
+            bg: "#ec4899",
+            color: "#fff",
+            fs: 22,
+          },
+          {
+            w: 1,
+            h: 1,
+            text: "2K+",
+            sub: "Reviews",
+            bg: "#a78bfa",
+            color: "#18181b",
+            fs: 26,
+          },
+          {
+            w: 2,
+            h: 1,
+            text: "Shop Now",
+            sub: "",
+            bg: "linear-gradient(135deg,#a855f7,#ec4899)",
+            color: "#fff",
+            fs: 28,
+          },
+          {
+            w: 2,
+            h: 1,
+            text: "4.9 ★",
+            sub: "Rated",
+            bg: "#ef4444",
+            color: "#fff",
+            fs: 26,
+          },
+          {
+            w: 1,
+            h: 1,
+            text: "Eco",
+            sub: "Friendly",
+            bg: "#10b981",
+            color: "#fff",
+            fs: 22,
+          },
+          {
+            w: 1,
+            h: 1,
+            text: "New",
+            sub: "Arrivals",
+            bg: "#3b82f6",
+            color: "#fff",
+            fs: 22,
+          },
+        ],
+        saas: [
+          {
+            w: 2,
+            h: 2,
+            text: "Analytics",
+            sub: "Real-time insights",
+            bg: "#18181b",
+            color: "#fff",
+            fs: 26,
+          },
+          {
+            w: 2,
+            h: 1,
+            text: "10K+ Users",
+            sub: "",
+            bg: "linear-gradient(135deg,#3b82f6,#06b6d4)",
+            color: "#fff",
+            fs: 28,
+          },
+          {
+            w: 2,
+            h: 1,
+            text: "99.9% Uptime",
+            sub: "",
+            bg: "#10b981",
+            color: "#fff",
+            fs: 26,
+          },
+          {
+            w: 1,
+            h: 1,
+            text: "API",
+            sub: "Docs",
+            bg: "#e5e5e5",
+            color: "#18181b",
+            fs: 22,
+          },
+          {
+            w: 1,
+            h: 1,
+            text: "SOC 2",
+            sub: "Compliant",
+            bg: "#a78bfa",
+            color: "#18181b",
+            fs: 20,
+          },
+          {
+            w: 2,
+            h: 1,
+            text: "Start Free",
+            sub: "No credit card",
+            bg: "#f59e0b",
+            color: "#fff",
+            fs: 26,
+          },
+          {
+            w: 3,
+            h: 1,
+            text: "Integrations",
+            sub: "Slack - GitHub - Figma",
+            bg: "#ec4899",
+            color: "#fff",
+            fs: 24,
+          },
+        ],
+        portfolio: [
+          {
+            w: 2,
+            h: 2,
+            text: "Hi, I'm Alex",
+            sub: "Product Designer",
+            bg: "#18181b",
+            color: "#fff",
+            fs: 28,
+          },
+          {
+            w: 2,
+            h: 1,
+            text: "Projects",
+            sub: "24 shipped",
+            bg: "#3b82f6",
+            color: "#fff",
+            fs: 24,
+          },
+          {
+            w: 1,
+            h: 1,
+            text: "About",
+            sub: "",
+            bg: "#e5e5e5",
+            color: "#18181b",
+            fs: 20,
+          },
+          {
+            w: 1,
+            h: 1,
+            text: "Blog",
+            sub: "",
+            bg: "#10b981",
+            color: "#fff",
+            fs: 20,
+          },
+          {
+            w: 2,
+            h: 1,
+            text: "Let's Talk",
+            sub: "Available for work",
+            bg: "linear-gradient(135deg,#8b5cf6,#ec4899)",
+            color: "#fff",
+            fs: 26,
+          },
+          {
+            w: 2,
+            h: 1,
+            text: "Awards",
+            sub: "6 design awards",
+            bg: "#f59e0b",
+            color: "#fff",
+            fs: 24,
+          },
+        ],
+      };
+
+      var canvas = document.getElementById("canvas");
+
+      /* ===== HELPERS ===== */
+      function esc(s) {
+        return (s || "").replace(/[&<>"]/g, function (m) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m];
+        });
+      }
+
+      function getSel() {
+        return state.cards.find(function (c) {
+          return c.id === state.selected;
+        });
+      }
+
+      function showToast(msg) {
+        var t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        clearTimeout(t._h);
+        t._h = setTimeout(function () {
+          t.classList.remove("show");
+        }, 2500);
+      }
+
+      function cloneCard(c, newId) {
+        return {
+          id: newId,
+          w: c.w,
+          h: c.h,
+          text: c.text,
+          sub: c.sub,
+          bg: c.bg,
+          color: c.color,
+          fs: c.fs,
+        };
+      }
+
+      /* ===== RENDER ===== */
+      function render() {
+        canvas.style.gridTemplateColumns = "repeat(" + state.cols + ", 1fr)";
+        canvas.style.gridAutoRows = state.rowH + "px";
+        canvas.style.gap = state.gap + "px";
+        canvas.innerHTML = "";
+
+        state.cards.forEach(function (c, i) {
+          var el = document.createElement("div");
+          el.className =
+            "bento-card" + (state.selected === c.id ? " selected" : "");
+          el.style.gridColumn = "span " + c.w;
+          el.style.gridRow = "span " + c.h;
+          el.style.background = c.bg;
+          el.style.borderRadius = state.radius + "px";
+          el.style.color = c.color;
+          el.tabIndex = 0;
+          el.setAttribute("role", "button");
+          el.setAttribute(
+            "aria-label",
+            "Card " +
+              (i + 1) +
+              ": " +
+              c.text +
+              ", width " +
+              c.w +
+              ", height " +
+              c.h,
+          );
+
+          var html = "";
+          html +=
+            '<div class="card-text" style="font-size:' +
+            c.fs +
+            "px;color:" +
+            c.color +
+            '">' +
+            esc(c.text) +
+            "</div>";
+          if (c.sub) {
+            html += '<div class="card-sub">' + esc(c.sub) + "</div>";
+          }
+          html += '<div class="card-actions">';
+          html +=
+            '<button class="icon-btn" title="Wider" onclick="event.stopPropagation();resizeCard(' +
+            c.id +
+            ',&#39;w&#39;,1)">&#8646;</button>';
+          html +=
+            '<button class="icon-btn" title="Edit" onclick="event.stopPropagation();selectCard(' +
+            c.id +
+            ')">&#9998;</button>';
+          html +=
+            '<button class="icon-btn danger" title="Delete" onclick="event.stopPropagation();deleteCard(' +
+            c.id +
+            ')">&#128465;</button>';
+          html += "</div>";
+          html += '<div class="resize-panel">';
+          html +=
+            '<button onclick="event.stopPropagation();resizeCard(' +
+            c.id +
+            ',&#39;h&#39;,-1)">&#8722;</button>';
+          html += "<span>" + c.w + " x " + c.h + "</span>";
+          html +=
+            '<button onclick="event.stopPropagation();resizeCard(' +
+            c.id +
+            ',&#39;h&#39;,1)">+</button>';
+          html +=
+            '<button onclick="event.stopPropagation();resizeCard(' +
+            c.id +
+            ',&#39;w&#39;,-1)">&#8249;</button>';
+          html +=
+            '<button onclick="event.stopPropagation();resizeCard(' +
+            c.id +
+            ',&#39;w&#39;,1)">&#8250;</button>';
+          html += "</div>";
+
+          el.innerHTML = html;
+
+          el.addEventListener("click", function () {
+            selectCard(c.id);
+          });
+          el.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowRight") {
+              resizeCard(c.id, "w", 1);
+              e.preventDefault();
+            }
+            if (e.key === "ArrowLeft") {
+              resizeCard(c.id, "w", -1);
+              e.preventDefault();
+            }
+            if (e.key === "ArrowUp") {
+              resizeCard(c.id, "h", -1);
+              e.preventDefault();
+            }
+            if (e.key === "ArrowDown") {
+              resizeCard(c.id, "h", 1);
+              e.preventDefault();
+            }
+            if (e.key === "Delete") {
+              deleteCard(c.id);
+            }
+          });
+
+          canvas.appendChild(el);
+        });
+
+        syncInspector();
+      }
+
+      /* ===== ACTIONS ===== */
+      function addCard() {
+        var c = cloneCard(
+          {
+            w: 2,
+            h: 1,
+            text: "New Card",
+            sub: "",
+            bg: "#e5e5e5",
+            color: "#18181b",
+            fs: 24,
+          },
+          state.nextId,
+        );
+        state.nextId = state.nextId + 1;
+        state.cards.push(c);
+        state.selected = c.id;
+        render();
+      }
+
+      function selectCard(id) {
+        state.selected = id;
+        render();
+      }
+
+      function resizeCard(id, axis, d) {
+        var c = state.cards.find(function (x) {
+          return x.id === id;
+        });
+        if (!c) return;
+        if (axis === "w") {
+          c.w = Math.min(state.cols, Math.max(1, c.w + d));
+        } else {
+          c.h = Math.min(4, Math.max(1, c.h + d));
+        }
+        state.selected = id;
+        render();
+      }
+
+      function resizeSelected(axis, d) {
+        if (state.selected) resizeCard(state.selected, axis, d);
+      }
+
+      function moveSelected(dir) {
+        var i = -1;
+        state.cards.forEach(function (c, idx) {
+          if (c.id === state.selected) i = idx;
+        });
+        var j = i + dir;
+        if (i < 0 || j < 0 || j >= state.cards.length) return;
+        var tmp = state.cards[i];
+        state.cards[i] = state.cards[j];
+        state.cards[j] = tmp;
+        render();
+      }
+
+      function duplicateSelected() {
+        var c = getSel();
+        if (!c) return;
+        var copy = cloneCard(c, state.nextId);
+        state.nextId = state.nextId + 1;
+        state.cards.splice(state.cards.indexOf(c) + 1, 0, copy);
+        state.selected = copy.id;
+        render();
+      }
+
+      function deleteCard(id) {
+        state.cards = state.cards.filter(function (c) {
+          return c.id !== id;
+        });
+        if (state.selected === id) state.selected = null;
+        render();
+      }
+
+      function deleteSelected() {
+        if (state.selected) deleteCard(state.selected);
+      }
+
+      function clearAll() {
+        if (confirm("Remove all cards?")) {
+          state.cards = [];
+          state.selected = null;
+          render();
+        }
+      }
+
+      /* ===== INSPECTOR ===== */
+      function syncInspector() {
+        var c = getSel();
+        var textInput = document.getElementById("cardText");
+        var subInput = document.getElementById("cardSub");
+        if (!c) {
+          textInput.value = "";
+          subInput.value = "";
+          return;
+        }
+        textInput.value = c.text;
+        subInput.value = c.sub || "";
+        document.getElementById("cardColor").value =
+          c.color.indexOf("#") === 0 ? c.color : "#ffffff";
+        document.getElementById("cardBg").value =
+          c.bg.indexOf("#") === 0 ? c.bg : "#f59e0b";
+        document.getElementById("fsRange").value = c.fs;
+        document.getElementById("fsVal").textContent = c.fs + "px";
+        renderSwatches();
+      }
+
+      function updateCard(prop, val) {
+        var c = getSel();
+        if (!c) return;
+        if (prop === "fs") {
+          c.fs = parseInt(val, 10);
+          document.getElementById("fsVal").textContent = c.fs + "px";
+        } else {
+          c[prop] = val;
+        }
+        render();
+      }
+
+      function renderSwatches() {
+        var wrap = document.getElementById("swatches");
+        wrap.innerHTML = "";
+        PALETTE.forEach(function (bg) {
+          var d = document.createElement("div");
+          d.className = "swatch";
+          d.style.background = bg;
+          d.title = bg;
+          d.onclick = function () {
+            updateCard("bg", bg);
+          };
+          wrap.appendChild(d);
+        });
+      }
+
+      /* ===== GLOBAL SETTINGS ===== */
+      function setCols(v) {
+        state.cols = +v;
+        document.getElementById("colVal").textContent = v;
+        state.cards.forEach(function (c) {
+          if (c.w > state.cols) c.w = state.cols;
+        });
+        render();
+      }
+
+      function setRowH(v) {
+        state.rowH = +v;
+        document.getElementById("rowVal").textContent = v + "px";
+        render();
+      }
+
+      function setGap(v) {
+        state.gap = +v;
+        document.getElementById("gapVal").textContent = v + "px";
+        render();
+      }
+
+      function setRadius(v) {
+        state.radius = +v;
+        document.getElementById("radVal").textContent = v + "px";
+        render();
+      }
+
+      /* ===== TEMPLATES ===== */
+      function openTemplates() {
+        document.getElementById("tplModal").classList.add("open");
+      }
+
+      function applyTemplate(key) {
+        var list = TEMPLATES[key];
+        state.cards = list.map(function (t, idx) {
+          return cloneCard(t, state.nextId + idx);
+        });
+        state.nextId = state.nextId + list.length;
+        state.selected = null;
+        document.getElementById("tplModal").classList.remove("open");
+        render();
+        showToast("Template applied!");
+      }
+
+      /* ===== SAVE / LOAD / IMPORT ===== */
+      function saveLayout() {
+        localStorage.setItem("bentoLayout", JSON.stringify(state));
+        showToast("Layout saved locally!");
+      }
+
+      function loadLayout() {
+        var raw = localStorage.getItem("bentoLayout");
+        if (!raw) {
+          showToast("No saved layout found.");
+          return;
+        }
+        state = JSON.parse(raw);
+        render();
+        showToast("Layout loaded!");
+      }
+
+      function importLayout(e) {
+        var f = e.target.files[0];
+        if (!f) return;
+        var r = new FileReader();
+        r.onload = function () {
+          try {
+            state = JSON.parse(r.result);
+            render();
+            showToast("Imported!");
+          } catch (err) {
+            showToast("Invalid file.");
+          }
+        };
+        r.readAsText(f);
+      }
+
+      /* ===== EXPORT ===== */
+      var activeTab = "html";
+
+      function openExport() {
+        document.getElementById("exportModal").classList.add("open");
+        generateCode();
+      }
+
+      function closeExport() {
+        document.getElementById("exportModal").classList.remove("open");
+      }
+
+      function switchTab(tab) {
+        activeTab = tab;
+        document.getElementById("tabHtml").className =
+          tab === "html" ? "btn primary" : "btn";
+        document.getElementById("tabCss").className =
+          tab === "css" ? "btn primary" : "btn";
+        generateCode();
+      }
+
+      function generateCode() {
+        var out = document.getElementById("codeOut");
+        var h = "";
+        if (activeTab === "html") {
+          h = '<div class="bento-grid">' + "\n";
+          state.cards.forEach(function (c) {
+            h +=
+              '  <div class="bento-card" style="grid-column: span ' +
+              c.w +
+              "; grid-row: span " +
+              c.h +
+              "; background: " +
+              c.bg +
+              ';">' +
+              "\n";
+            h +=
+              '    <p class="bento-title" style="color:' +
+              c.color +
+              "; font-size:" +
+              c.fs +
+              'px;">' +
+              esc(c.text) +
+              "</p>\n";
+            if (c.sub) {
+              h +=
+                '    <p class="bento-sub" style="color:' +
+                c.color +
+                ';">' +
+                esc(c.sub) +
+                "</p>\n";
+            }
+            h += "  </div>\n";
+          });
+          h += "</div>";
+        } else {
+          h = ".bento-grid {\n";
+          h += "  display grid;\n";
+          h += "  grid-template-columns: repeat(" + state.cols + ", 1fr);\n";
+          h += "  grid-auto-rows: " + state.rowH + "px;\n";
+          h += "  gap: " + state.gap + "px;\n";
+          h += "  width: 100%;\n";
+          h += "}\n\n";
+          h += ".bento-card {\n";
+          h += "  border-radius: " + state.radius + "px;\n";
+          h += "  padding: 24px;\n";
+          h += "  display: flex;\n";
+          h += "  flex-direction: column;\n";
+          h += "  align-items: center;\n";
+          h += "  justify-content: center;\n";
+          h += "  text-align: center;\n";
+          h += "  overflow: hidden;\n";
+          h += "}\n\n";
+          h +=
+            ".bento-title { font-weight: 800; line-height: 1.2; margin: 0; }\n";
+          h +=
+            ".bento-sub { font-size: 13px; margin: 6px 0 0; opacity: .85; }\n\n";
+          h += "/* Mobile responsiveness */\n";
+          h += "@media (max-width: 768px) {\n";
+          h += "  .bento-grid { grid-template-columns: repeat(2, 1fr); }\n";
+          h +=
+            "  .bento-card { grid-column: span 2 !important; grid-row: span 1 !important; }\n";
+          h += "}";
+        }
+        out.textContent = h;
+      }
+
+      function copyCode() {
+        var text = document.getElementById("codeOut").textContent;
+        navigator.clipboard
+          .writeText(text)
+          .then(function () {
+            showToast("Code copied to clipboard!");
+          })
+          .catch(function () {
+            showToast("Copy failed - select manually.");
+          });
+      }
+
+      /* ===== INIT ===== */
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document
+        .getElementById("exportModal")
+        .addEventListener("click", function (e) {
+          if (e.target.id === "exportModal") closeExport();
+        });
+      document
+        .getElementById("tplModal")
+        .addEventListener("click", function (e) {
+          if (e.target.id === "tplModal") e.target.classList.remove("open");
+        });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeExport();
+      });
+
+      /* Load default storefront demo */
+      (function () {
+        var list = TEMPLATES.shop;
+        state.cards = list.map(function (t, idx) {
+          return cloneCard(t, idx + 1);
+        });
+        state.nextId = list.length + 1;
+        state.selected = null;
+        render();
+      })();
+    </script>
+  </body>
+</html>
